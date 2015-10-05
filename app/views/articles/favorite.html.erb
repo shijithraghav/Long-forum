@@ -1,0 +1,79 @@
+<div class="ui container">
+
+<div class="ui left aligned category search">
+<div class="ui icon input">
+  <input class="prompt" type="text" placeholder="Search tags...">
+  <i class="search icon"></i>
+</div>
+<div class="results"></div>
+</div>
+</div>
+</div>
+
+<div class="ui one column center aligned grid ">
+  <div class="column twelve wide form-holder">
+
+<h1>Favorites</h1>
+
+
+<% @articles.each do |article| %>
+<div class="ui items">
+    <div class="item">
+      <div class="content">
+
+          <div class="ui tiny image">
+              <img data-name = "<%= article.title %>" class = "initialjs-avatar"/>
+          </div>
+
+          <div class="top aligned content">
+              <h2><a class="header">
+                  <%= link_to article.title, article_path(article) %></a>
+              </h2>
+
+              <div class="description">
+                  <%= "#{time_ago_in_words(article.created_at)} ago "  %>
+              </div>
+          </div>
+
+          <div class="middle aligned content">
+              <div class="description1">
+                  <div class="ui avatar image">
+                      <img data-name = "<%= article.user.username %>" class = "initialjs-avatar"/>
+                  </div>  <%= article.user.username %>
+                  Tags:
+                  <div class= "ui blue label">
+                      <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')%>
+                  </div>
+              </div>
+          </div>
+
+            <div class="ui tiny horizontal statitic">
+                <div class="ui green statistic">
+
+                      <div class="value">
+                          <%= pluralize article.reputation_for(:votes).to_i,"" %>
+                      </div>
+                      <div class="label">
+                          Votes
+                      </div>
+                </div>
+                <div class="ui red statistic">
+                      <div class="value">
+                          <%= article.comments.count %>
+                      </div>
+                      <div class="label">
+                          Comments
+                      </div>
+                </div>
+            </div>
+
+    </div>
+  </div>
+    <div class="ui divider"></div>
+</div>
+<% end %>
+
+
+</div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+
+<h4>Add a comment:</h4>
+
+<%= form_for([@article, @article.comments.build]) do |f| %>
+<p>
+  <div class="ui form">
+  <div class="field">
+
+</p>
+<p>
+<%= f.label :tag_list, "Tags (separated by commas)" %><br />
+  <ul id = "article-tags"></ul></p>
+<p>
+  <%= f.label :body %><br>
+  <%= f.cktext_area :body, :class => 'someclass', :ckeditor => {:language => 'english'} %>
+</p>
+<p>
+  <div class="actions">
+    <button class="ui button medium fluid blue" type="submit">Create</button>
+  </div>
+</p>
+
+</div>
+</div>
+</div>
+<% end %>

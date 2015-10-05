@@ -1,0 +1,59 @@
+<div class="ui comments">
+  <div class="comment">
+    <div class="ui avatar image">
+        <img data-name = "<%= comment.commenter %>" class = "initialjs-avatar"/>
+    </div>
+    <div class="content">
+      <a class="author"><%= comment.commenter %></a>
+      <div class="metadata">
+        <span class="date">Today at 5:42PM</span>
+      </div>
+      <div class="text">
+        <%= raw comment.body %>
+      </div>
+      <div class="actions">
+        <a class="reply"></a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="haiku">
+
+  <em>
+     | <%= pluralize comment.reputation_for(:votes).to_i, "vote" %>
+    |<i class="long arrow up icon"></i> <%= link_to "up", vote_article_comment_path(@article,comment, type: "up"), method: "post" %>
+    | <i class="long arrow down icon"></i><%= link_to "down", vote_article_comment_path(@article,comment, type: "down"), method: "post" %>
+  </em>
+</div>
+
+
+
+
+<p>
+  <% if comment.commenter == current_user.username %>
+  <%= link_to 'Destroy Comment',  [@article,comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+               <% end %>
+</p>
+<div class="actions">
+  <a class="reply"></a>
+</div>

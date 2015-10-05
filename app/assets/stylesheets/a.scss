@@ -1,0 +1,104 @@
+
+  .main.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+
+  .overlay {
+    float: left;
+    margin: 0em 3em 1em 0em;
+  }
+  .overlay .menu {
+    position: relative;
+    left: 0;
+    transition: left 0.5s ease;
+  }
+
+  .main.menu.fixed {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .overlay.fixed .menu {
+    left: 800px;
+  }
+
+  .text.container .left.floated.image {
+    margin: 2em 2em 2em -4em;
+  }
+  .text.container .right.floated.image {
+    margin: 2em -4em 2em 2em;
+  }
+
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+  .ui.grid{
+    font-color: white;
+  }
+  .ui-widget-content{
+    border: none;
+  }
+
+a{
+  float: left;
+}
+.description{
+  width: auto;
+  float: left;
+  height: 15px;
+  padding-left: 10px;
+}
+.description1{
+float: left;
+}
+.ui.tiny.horizontal.statitic{
+  float: right;
+
+}
+.ui.container{
+  height: auto;
+  width: auto;
+}
+.ui.tiny.image{
+  float: left;
+}
+.top.aligned.content{
+  margin-left: 100px;
+}
+.twelve.wide.field{
+  float: left;
+}
+.ui.left.labeled.button{
+  float: left;
+}
+.haiku{
+  float: left;
+}
+.comments{
+  margin-top: 60px;
+}
+.ui.comments{
+  padding-top: 12px;
+}
+.ui.dividing.header{
+  margin-top: 100px;
+}
+.ui.segment{
+  width: 1000px;
+  margin-top: 50px;
+  margin: 0 auto;
+}
+
+.ui.right.floated.button{
+  margin-left: 678px;
+}
+.ui.left.aligned.blue.header{
+  margin-top: 100px;
+}
+.meta{
+  margin-top: 30px !important;
+}
+.extra{
+  margin-top: 53px !important;
+}

@@ -1,0 +1,37 @@
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div class="ui one column center aligned grid ">
+  <div class="column six wide form-holder">
+  <div class="ui form">
+    <div class="field">
+      <h1 class="ui blue header">Login</h1>
+        <%= f.label :email %><br />
+      <%= f.email_field :email, class: "field", autofocus: true %>
+
+  </div>
+
+    <div class="field">
+
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+  </div>
+
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+  <div class="actions">
+    <button class="ui button medium fluid green" type="submit">Submit</button>
+  </div>
+  <%= render "devise/shared/links" %>
+  </div>
+  </div>
+
+<% end %>

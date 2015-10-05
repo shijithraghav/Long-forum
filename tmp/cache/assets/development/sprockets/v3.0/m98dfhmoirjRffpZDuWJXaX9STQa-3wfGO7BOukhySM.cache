@@ -1,0 +1,49 @@
+I"&(function() {
+  $(document).on('ready page:load', function() {
+    var i, len, ref, results, tag;
+    $('#article-tags').tagit({
+      fieldName: 'article[tag_list]',
+      singleField: true,
+      availableTags: gon.available_tags
+    });
+    if (gon.article_tags != null) {
+      ref = gon.article_tags;
+      results = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        tag = ref[i];
+        results.push($('#article-tags').tagit('createTag', tag));
+      }
+      return results;
+    }
+  });
+
+  window.changeImage = function(source) {
+    var $source, imagePath;
+    console.log("called changeImage(source)");
+    $source = $(source);
+    imagePath = $source.attr("src");
+    if (imagePath && imagePath === "/assets/othericons/thumbsup_off.PNG") {
+      console.log("thumbsup is currently OFF");
+      return $source.attr("src", "/assets/othericons/thumbsup_on.PNG");
+    } else {
+      console.log("thumbsup is currently ON");
+      return $source.attr("src", "/assets/othericons/thumbsup_off.PNG");
+    }
+  };
+
+  window.toggleImage = function(source) {
+    var $source, imagePath;
+    console.log("called changeImage(source)");
+    $source = $(source);
+    imagePath = $source.attr("src");
+    if (imagePath && imagePath === "/assets/othericons/thumbsdown_off.PNG") {
+      console.log("thumbsdown is currently OFF");
+      return $source.attr("src", "/assets/othericons/thumbsdown_on.PNG");
+    } else {
+      console.log("thumbsdown is currently ON");
+      return $source.attr("src", "/assets/othericons/thumbsdown_off.PNG");
+    }
+  };
+
+}).call(this);
+:ET

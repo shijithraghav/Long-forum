@@ -1,0 +1,13 @@
+
+<div class="ui left labeled button" tabindex="0">
+         <a class="ui basic right pointing label">
+           <div id= "fav">
+             <%= @article.fav_users.count %>
+           </div>
+         </a>
+         <%if current_user.fav_articles.include? @article %>
+         <%= link_to ('<div class = "ui button"><i class="star yellow icon"></i></div>').html_safe , favorite_article_path(@article.id,type:'unfavourite'), data: {method: "post", :remote => true}  %>
+         <%else%>
+           <%= link_to ('<div class = "ui button"><i class="star icon"></i></div>').html_safe , favorite_article_path(@article.id, type:'favourite'),data: {method: "post", :remote => true}  %>
+           <%end%>
+       </div>

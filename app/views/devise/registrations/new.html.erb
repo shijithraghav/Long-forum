@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+  <div class="ui one column center aligned grid ">
+    <div class="column six wide form-holder">
+    <div class="ui form">
+      <div class="field">
+        <h1 class="ui blue header">Sign Up</h1>
+        <h4 class="ui red header"><%= devise_error_messages! %></h4>
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true %>
+      </div>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+
+
+
+
+    <div class="actions">
+      <button class="ui button medium fluid green" type="submit">SignUp</button>
+    </div>
+    </div>
+    </div>
+
+
+
+<% end %>
+
+<%= render "devise/shared/links" %>
