@@ -56,6 +56,10 @@ float: left;
   float: right;
 
 }
+.ui.horizontal.statistic{
+  float: right;
+  margin-top: 0px !important;
+}
 .ui.container{
   height: auto;
   width: auto;
@@ -85,7 +89,7 @@ float: left;
   margin-top: 100px;
 }
 .ui.segment{
-  width: 1000px;
+  width: auto;
   margin-top: 50px;
   margin: 0 auto;
 }
@@ -93,12 +97,17 @@ float: left;
 .ui.right.floated.button{
   margin-left: 678px;
 }
-.ui.left.aligned.blue.header{
-  margin-top: 100px;
-}
+
 .meta{
   margin-top: 30px !important;
 }
 .extra{
   margin-top: 53px !important;
+}
+.content{
+  margin: 17px;
+}
+.actions{
+  height: 27px;
+  margin-bottom: 10px;
 }
