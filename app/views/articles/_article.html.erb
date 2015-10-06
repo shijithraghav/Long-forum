@@ -1,8 +1,7 @@
-<div class="haiku">
 
 
-     <%= pluralize @article.reputation_for(:votes).to_i, "vote" %>
-     |<%= link_to "up", vote_article_path(@article, type: "up"), method: "post" %>
-     |<%= link_to "down", vote_article_path(@article, type: "down"), method: "post" %>
-
-</div>
+<% if current_user && !current_user.voted_for?(@article) %>
+     | <%= link_to "up", vote_article_path(@article, type: "up") , method: :post , :remote => true%>
+     | <%= link_to "down", vote_article_path(@article, type: "down"), method: :post  , :remote => true%>
+   <% end %>
+    
