@@ -1,7 +1,13 @@
 
-
-<% if current_user && !current_user.voted_for?(@article) %>
-     | <%= link_to "up", vote_article_path(@article, type: "up") , method: :post , :remote => true%>
-     | <%= link_to "down", vote_article_path(@article, type: "down"), method: :post  , :remote => true%>
-   <% end %>
-    
+<div class="ui horizontal statistic">
+          <div class="value" id = "vote_count">
+            <%= @article.reputation_for(:votes).to_i%>
+          </div>
+          <div class="label">
+            Votes
+          </div>
+          <div class = "votes">
+            | <%= link_to ('<i class="large black thumbs outline up icon"></i>').html_safe, vote_article_path(@article, type: "up") , method: :post , :remote => true%>
+            | <%= link_to ('<i class="large black thumbs outline down icon"></i>').html_safe, vote_article_path(@article, type: "down"), method: :post  , :remote => true%>
+        </div>
+  </div>

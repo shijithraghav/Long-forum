@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+respond_to :html, :js
   def create
    @article = Article.find(params[:article_id])
    @comment = @article.comments.create(comment_params)
@@ -19,7 +21,7 @@ class CommentsController < ApplicationController
      value = params[:type] == "up" ? 1 : -1
      @comment = Comment.find(params[:id])
      @comment.add_or_update_evaluation(:votes, value, current_user)
-     redirect_to :back, notice: "Thank you for voting!"
+
    end
 
  private

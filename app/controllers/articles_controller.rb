@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
- autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
   before_action :set_article, only: [:edit]
   before_action :set_article_tags_to_gon, only: [:edit]
-before_action :set_available_tags_to_gon, only: [:new, :edit]
+  before_action :set_available_tags_to_gon, only: [:new, :edit]
+  respond_to :html, :js
 
   def new
      @article = Article.new
@@ -33,7 +34,7 @@ before_action :set_available_tags_to_gon, only: [:new, :edit]
     elsif params[:type]== 'my'
         @articles = Article.where(:user_id => current_user.id)
       else
-        @articles = Article.all
+        @articles = Article.where(:visibility => 'public')
       end
    end
 
@@ -107,7 +108,6 @@ def vote
   value = params[:type] == "up" ? 1 : -1
   @article = Article.find(params[:id])
   @article.add_or_update_evaluation(:votes, value, current_user)
-  redirect_to :back, notice: "Thank you for voting!"
 end
 
 def destroy

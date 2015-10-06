@@ -23,7 +23,7 @@ Rails.application.routes.draw do
  end
  collection do
    get :favorite
-   
+
 
  end
     resources :comments do

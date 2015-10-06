@@ -55,7 +55,6 @@ float: left;
 
 }
 .ui.horizontal.statistic{
-  float: right;
   margin-top: 0px !important;
 }
 .ui.container{
@@ -87,7 +86,7 @@ float: left;
   margin-top: 100px;
 }
 .ui.segment{
-  width: auto;
+  width: 1000px;
   margin-top: 50px;
   margin: 0 auto;
 }
@@ -108,4 +107,7 @@ float: left;
 .actions{
   height: 27px;
   margin-bottom: 10px;
+}
+#votes{
+  margin-top: 50px;
 }
