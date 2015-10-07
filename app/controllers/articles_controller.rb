@@ -24,6 +24,8 @@ class ArticlesController < ApplicationController
       @articles = Comment.tagged_with(params[:tag]).map { |comment| comment.article}
       @articles += Article.tagged_with(params[:tag])
       @articles=@articles.uniq
+    elsif params[:search]
+      @articles = Article.tagged_with(params[:search]).order("created_at DESC")
 
     elsif params[:type]== 'private'
       @articles = Invite.where(:user_id => current_user.id, :status => 'true').map{ |invite| invite.article}

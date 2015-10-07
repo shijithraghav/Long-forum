@@ -15,4 +15,9 @@ has_reputation :votes, source: :user, aggregated_by: :sum
 has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
 default_scope  { order(:created_at => :desc) }
 
+
+
+def self.search(search)
+  where("tags LIKE ?", "%#{search}%")
+end
 end

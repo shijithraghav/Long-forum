@@ -44,6 +44,12 @@
       </div>
     </div>
   <% if user_signed_in? %>
+  <div class="search">
+    <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+</div>
     <div class="ui one column center aligned grid ">
         <button class="small ui button">
           <i class="star yellow icon"></i><%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link'  %>
