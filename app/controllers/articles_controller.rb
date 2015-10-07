@@ -35,9 +35,9 @@ class ArticlesController < ApplicationController
 
     elsif params[:type]== 'my'
         @articles = Article.where(:user_id => current_user.id)
-      else
+    else
         @articles = Article.where(:visibility => 'public')
-      end
+    end
    end
 
  def create

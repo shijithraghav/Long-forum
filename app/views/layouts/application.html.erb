@@ -45,8 +45,8 @@
     </div>
   <% if user_signed_in? %>
   <div class="search">
-    <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+    <%= form_tag(articles_path, :method => "get", id: "search-form") do |f| %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Posts", autocomplete: 'on' %>
     <%= submit_tag "Search" %>
     <% end %>
 </div>
