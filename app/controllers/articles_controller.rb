@@ -25,18 +25,18 @@ class ArticlesController < ApplicationController
       @articles += Article.tagged_with(params[:tag])
       @articles=@articles.uniq
     elsif params[:search]
-      @articles = Article.tagged_with(params[:search]).order("created_at DESC")
+      @articles = Article.tagged_with(params[:search]).order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
 
     elsif params[:type]== 'private'
-      @articles = Invite.where(:user_id => current_user.id, :status => 'true').map{ |invite| invite.article}
+      @articles = Invite.where(:user_id => current_user.id, :status => 'true').map{ |invite| invite.article}.paginate(:per_page => 5, :page => params[:page])
 
     elsif params[:type]== 'public'
-        @articles = Article.where(:visibility => 'public')
+        @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
 
     elsif params[:type]== 'my'
-        @articles = Article.where(:user_id => current_user.id)
+        @articles = Article.where(:user_id => current_user.id).paginate(:per_page => 5, :page => params[:page])
     else
-        @articles = Article.where(:visibility => 'public')
+        @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
     end
    end
 
@@ -68,7 +68,7 @@ if params[:id]
     current_user.fav_articles.delete(@article.id)
   end
 else
-    @articles= current_user.fav_articles
+    @articles= current_user.fav_articles.paginate(:per_page => 5, :page => params[:page])
   end
 end
 
@@ -105,6 +105,8 @@ def invite_reject
   redirect_to :back
 
 end
+
+
 
 def vote
   value = params[:type] == "up" ? 1 : -1

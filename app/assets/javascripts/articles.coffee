@@ -10,3 +10,14 @@ $(document).on 'ready page:load', ->
  if gon.article_tags?
    for tag in gon.article_tags
      $('#article-tags').tagit 'createTag', tag
+->
+  $('.tags_with_autocomplete').autocomplete
+    minLength: 2
+    source: (request, response) ->
+      $.ajax
+        url: $('.tags_with_autocomplete').data('autocompleteurl')
+        dataType: "json"
+        data:
+          name: request.term
+        success: (data) ->
+          response(data)

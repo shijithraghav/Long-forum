@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+gem 'will_paginate'
+
+
 gem 'autumn'
 
 gem 'initialjs-rails'
