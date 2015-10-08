@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   end
   def index
     if params[:tag]
-      @tag_list = true
+      @tags = true
       @articles = Comment.tagged_with(params[:tag]).map { |comment| comment.article}
       @articles += Article.tagged_with(params[:tag])
       @articles=@articles.uniq
