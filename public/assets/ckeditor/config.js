@@ -34,6 +34,18 @@ CKEDITOR.editorConfig = function( config )
 
   config.allowedContent = true;
 
+  config.toolbar_mini = [
+        ['Bold','Italic','Underline'],
+        ['Undo','Redo','-'],
+        //['NumberedList','BulletedList','-','Outdent','Indent'],
+        [//'JustifyLeft','JustifyCenter','JustifyRight',
+        'JustifyBlock'],
+        ['Link','Unlink'],
+        ['Image','HorizontalRule'],
+      //  ['Styles','Format','Font','FontSize'],
+        ['TextColor','BGColor']
+    ];
+    config.toolbar = "simple";
   // Rails CSRF token
   config.filebrowserParams = function(){
     var csrf_token, csrf_param, meta,
@@ -108,11 +120,12 @@ CKEDITOR.editorConfig = function( config )
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] }
   ];
 
-  config.toolbar_mini = [
+  /*config.toolbar_mini = [
     { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
     { name: 'styles', items: [ 'Font', 'FontSize' ] },
     { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
     { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] }
   ];
+*/
 };
