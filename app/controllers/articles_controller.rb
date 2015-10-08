@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   end
   def index
     if params[:tag]
-
+      @tag_list = true
       @articles = Comment.tagged_with(params[:tag]).map { |comment| comment.article}
       @articles += Article.tagged_with(params[:tag])
       @articles=@articles.uniq
@@ -28,15 +28,17 @@ class ArticlesController < ApplicationController
       @articles = Article.tagged_with(params[:search]).order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
 
     elsif params[:type]== 'private'
-      @articles = Invite.where(:user_id => current_user.id, :status => 'true').map{ |invite| invite.article}.paginate(:per_page => 5, :page => params[:page])
+      @articles = Invite.where(:user_id => current_user.id, :status => 'true').map{ |invite| invite.article}
 
     elsif params[:type]== 'public'
         @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
 
     elsif params[:type]== 'my'
         @articles = Article.where(:user_id => current_user.id).paginate(:per_page => 5, :page => params[:page])
+    elsif params[:type]== 'top'
+        @articles = Article.page(params[:page]).popular
     else
-        @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
+        @articles = Article.where(:visibility => 'public').paginate(:per_page => 4, :page => params[:page])
     end
    end
 

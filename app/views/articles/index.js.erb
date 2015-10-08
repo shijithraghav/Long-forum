@@ -1,0 +1,13 @@
+<%if @tag_list %>
+console.log("hiiiiiiiiiiiiiiiiii")
+ $('#my-posts').html('<%= j render @articles %>')
+<% else %>
+console.log("hiiiiiiiiiioiiiiiiii")
+$('<%= j render @articles %>').insertBefore( "#infinite-scrolling" );
+<% if @articles.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @articles %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>
+<%end %>

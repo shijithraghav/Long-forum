@@ -1,66 +1,29 @@
 
-
+<form action="<%= articles_path %>" data-remote="true" method="get" >
+<input type="text" name="tag" id="tag" class="ui-autocomplete-input">
+<%= submit_tag "Search", :name => nil%>
+</form>
 <h1 class="ui center aligned header">Posts</h1>
 <div class="ui container">
- <div class="ui relaxed divided items">
-   <% @articles.each do |article| %>
-         <div class="item">
-             <div class="ui tiny image">
-
-                <img data-name="<%= article.title%>" class="initialjs-avatar"/>
-
-             </div>
-             <div class="content">
-              <h3> <a class="ui header"  ><%= link_to truncate(article.title, length: 15) , article_path(article) %></a></h3>
-               <div class="meta">
-                 <a><%= time_ago_in_words(article.created_at) %> ago</a>
-                 <a>Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></a>
-               </div>
-               <div class="description">
-
-               </div>
-               <div class="extra">
-                 <div  class="ui circular avatar image">
-                   <img data-name="<%= article.user.username %>" class="initialjs-avatar"/>
-                 </div>
-                  <%#= link_to article.user.username, article.user %><%= article.user.username %>
-               </div>
-             </div>
-             <div class="ui tiny image">
-               <div class="ui tiny statistics">
-                 <div class="green statistic">
-                   <div class="value">
-                     <%= pluralize article.reputation_for(:votes).to_i,"" %>
-                   </div>
-                   <div class="label">
-                     Votes
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <div class="ui tiny image">
-               <div class="ui tiny statistics">
-                 <div class="blue statistic">
-                   <div class="value">
-                     <%= article.comments.count %>
-                   </div>
-                   <div class="label">
-                     Comments
-                   </div>
-                 </div>
-               </div>
-             </div>
-         </div>
-
-     <% end %>
+ <div class="ui relaxed divided items" id ="my-posts">
+   <%= render @articles %>
 
 
 
  </div>
 </div>
-<%= will_paginate @articles %>
+<%#= will_paginate @articles %>
 <script type="text/javascript">
-$(document).ready(function(){
- $('.initialjs-avatar').initial();
-})
-</script>
+   $(document).ready(function(){
+     $('input[name=tag]').keyup( function () {
+       $.ajax({
+               url: "/articles",
+               dataType : "script",
+               data: { "tag":this.value  },
+               xhrFields: {
+     withCredentials: true
+  }
+             })
+         });
+   })
+   </script>

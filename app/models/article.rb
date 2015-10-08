@@ -20,4 +20,8 @@ default_scope  { order(:created_at => :desc) }
 def self.search(search)
   where("tags LIKE ?", "%#{search}%")
 end
+
+def self.popular
+  reorder('votes desc').find_with_reputation(:votes, :all)
+end
 end

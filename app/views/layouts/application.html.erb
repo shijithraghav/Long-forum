@@ -45,10 +45,7 @@
     </div>
   <% if user_signed_in? %>
   <div class="search">
-    <%= form_tag(articles_path, :method => "get", id: "search-form") do |f| %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Posts", autocomplete: 'on' %>
-    <%= submit_tag "Search" %>
-    <% end %>
+
 </div>
     <div class="ui one column center aligned grid ">
         <button class="small ui button">
@@ -73,6 +70,10 @@
 
         </button>
 
+        <button class="small ui button">
+        <i class="top icon"></i><%= link_to "Top", articles_path(type: 'top'), :class => 'navbar-link'  %>
+
+        </button>
         </div>
 
 <% end %>
