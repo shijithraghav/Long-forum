@@ -8,11 +8,11 @@
  <div class="ui relaxed divided items" id ="search-posts">
    <%= render @articles %>
 
- <div id="infinite-scrolling">
+ 
 
  </div>
 </div>
-<%#= will_paginate @articles %>
+<%= will_paginate @articles %>
 <script type="text/javascript">
    $(document).ready(function(){
      $('input[name=tag]').keyup( function () {

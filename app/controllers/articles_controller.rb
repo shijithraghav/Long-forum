@@ -21,14 +21,9 @@ class ArticlesController < ApplicationController
   def index
     if params[:tag]
       @tags = true
-      @articles = Comment.tagged_with(params[:tag]).map { |comment| comment.article}
-      @articles += Article.tagged_with(params[:tag])
-      @articles=@articles.uniq
-    elsif params[:search]
-      @articles = Article.tagged_with(params[:search]).order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
-
+      @articles = Article.joins(:tags).where('tags.name like ?', "%#{params[:tag]}%").paginate(:per_page => 5, :page => params[:page])
     elsif params[:type]== 'private'
-      @articles = Invite.where(:user_id => current_user.id, :status => 'true').map{ |invite| invite.article}
+      @articles = Article.joins(:invites).where(:invites => { :user_id => current_user.id , :status => 'true' }).paginate(:per_page => 5, :page => params[:page])
 
     elsif params[:type]== 'public'
         @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
@@ -36,9 +31,7 @@ class ArticlesController < ApplicationController
     elsif params[:type]== 'my'
         @articles = Article.where(:user_id => current_user.id).paginate(:per_page => 5, :page => params[:page])
     elsif params[:type]== 'top'
-        @articles = Article.page(params[:page]).popular
-  
-
+        @articles = Article.page(params[:page]).popular.paginate(:per_page => 5, :page => params[:page])
     else
         @articles = Article.where(:visibility => 'public').paginate(:per_page => 4, :page => params[:page])
     end

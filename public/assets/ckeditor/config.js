@@ -39,8 +39,9 @@ CKEDITOR.editorConfig = function( config )
         ['Undo','Redo','-'],
         //['NumberedList','BulletedList','-','Outdent','Indent'],
         [//'JustifyLeft','JustifyCenter','JustifyRight',
-        'JustifyBlock'],
-        ['Link','Unlink'],
+        'JustifyLeft','JustifyBlock', 'Blockquote'],
+        ['Link',//'Unlink'
+      ],
         ['Image','HorizontalRule'],
       //  ['Styles','Format','Font','FontSize'],
         ['TextColor','BGColor']
