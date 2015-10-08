@@ -37,6 +37,8 @@ class ArticlesController < ApplicationController
         @articles = Article.where(:user_id => current_user.id).paginate(:per_page => 5, :page => params[:page])
     elsif params[:type]== 'top'
         @articles = Article.page(params[:page]).popular
+  
+
     else
         @articles = Article.where(:visibility => 'public').paginate(:per_page => 4, :page => params[:page])
     end
