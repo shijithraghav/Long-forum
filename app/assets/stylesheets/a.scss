@@ -1,4 +1,124 @@
 
+
+.ui.borderless.main.menu{
+  background-color: #493172 !important;
+  height: 50px;
+}
+.ui.input{
+  margin: 7px;
+  width: 280px;
+  height: 36px;
+  background-color: #493172 !important;
+
+}
+.ui-autocomplete-input{
+  height: 34px;
+  width: 280px;
+  background-color: #5a457e !important;
+  text-color: #6b588c;
+  text-size: 16px;
+  border-radius: 4px;
+    color: white !important;
+}
+.ui.text.container{
+  margin-left: 200px !important;
+
+}
+.item{
+  font-color: white;
+  font-size: 16px;
+  background-color: white;
+}
+.ui.relaxed.divided.items > .item {
+  background-color: white;
+}
+
+h2{
+  margin-top: 0px;
+  margin-left: 20px;
+}
+.ui.purple.button{
+  height: 36px;
+  width: 97px;
+}
+
+#new_post_button button{
+  background-color: #8e44ad;
+  border-radius: 4px;
+  color: white !important;
+  font-size: 16px;
+  height: 34px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-left: 300px;
+}
+a.navbar-link{
+  color: white;
+
+}
+a.navbar-link1{
+  color: #999999;
+  font-size: 14px;
+
+}
+#dropdown{
+  color: white;
+}
+
+body{
+  background-color: #f2f1ef;
+}
+
+.ui.relaxed.divided.items{
+  width: 900px;
+  margin: 0 auto;
+}
+
+input#tag.ui-autocomplete-input{
+  color: #6b588c !important;
+}
+
+#user_ico{
+  width: 40px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -20px 0px;
+}
+.userico{
+  background-color: #000066;
+  height: 30px;
+  border-radius: 4px;
+}
+.userico:hover{
+  background-color: #000066;
+}
+#logo_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) 0px 0px;
+}
+
+.ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
+  display: block;
+  width: 200px;
+  height: 50px;
+
+}
+.ui.menu .dropdown.item .menu {
+  left: -50px;
+  border-style: solid;
+  border-color: #493172;
+  border-width: 1px;
+}
+
+
+
+
+
+
+
+
+
+
   .main.menu .item img.logo {
     margin-right: 1.5em;
   }

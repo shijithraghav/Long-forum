@@ -1,14 +1,19 @@
 
-<form action="<%= articles_path %>" data-remote="true" method="get" >
+<!--<form action="<%= articles_path %>" data-remote="true" method="get" >
 <input type="text" name="tag" id="tag" class="ui-autocomplete-input">
 <%= submit_tag "Search", :name => nil%>
 </form>
-<h1 class="ui center aligned header">Posts</h1>
+<h1 class="ui center aligned header">Posts</h1>-->
 <div class="ui container">
+
  <div class="ui relaxed divided items" id ="search-posts">
+
+   <div class ="headings">
+   <%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link1'  %>
+ </div>
    <%= render @articles %>
 
- 
+
 
  </div>
 </div>

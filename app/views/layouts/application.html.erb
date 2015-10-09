@@ -22,10 +22,40 @@
   <div class="ui borderless main menu">
       <div class="ui text container">
         <div href="#" class="header item">
-          <img class="logo" src="">
-        Forum
+          <div class="logoico">
+            <img id="logo_ico" src="Sprite_20px.png">
+          </div>
+        <h2><p><font color="white">Forum</font></p></h2>
         </div>
-          <div class="item"><%= link_to 'Home', articles_path, :class => 'navbar-link' %></div>
+        <div class="item">
+          <div class="ui input">
+            <form action="<%= articles_path %>" data-remote="true" method="get" >
+              <p><input type="text" name="tag" id="tag" class="ui-autocomplete-input" placeholder="search using tags" style="color: #6b588c !important;"></p>
+              <%#= submit_tag "Search", :name => nil%>
+            </form>
+          </div>
+        </div>
+
+      <div class="item">
+        <div id="new_post_button">
+          <button class="ui button"><%= link_to 'New Post', new_article_path, :class => 'navbar-link' %></button>
+        </div>
+      </div>
+      <div class = "item">
+        <div id="dropdown">
+        <div class="ui simple dropdown item">
+          <div class="userico">
+            <img id="user_ico" src="Sprite_20px.png">
+          </div>
+            <div class="menu">
+              <div class="item">Choice 1</div>
+              <div class="item">Choice 2</div>
+              <div class="item">Choice 3</div>
+            </div>
+          </div>
+        </div>
+        </div>
+    <!--      <div class="item"><%= link_to 'Home', articles_path, :class => 'navbar-link' %></div>
         <% if user_signed_in? %>
           <div class="item"><%= link_to 'New Post', new_article_path, :class => 'navbar-link' %></div>
         <a href="#" class="item">Logged in as <strong> <%=  current_user.email %></strong></a>
@@ -40,11 +70,11 @@
 
               <% end %>
             </div>
-          </div>
+          </div>-->
       </div>
     </div>
   <% if user_signed_in? %>
-  <div class="search">
+  <!--<div class="search">
 
 </div>
     <div class="ui one column center aligned grid ">
@@ -75,7 +105,7 @@
 
         </button>
 
-        </div>
+      </div>-->
 
 <% end %>
   <p class="navbar-text pull-right" style="padding-bottom: 25px">

@@ -3,7 +3,11 @@
 <h1 class="ui center aligned header">Favorites</h1>
 <div class="ui container">
  <div class="ui relaxed divided items">
+   <div class ="headings">
+   <%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link1'  %>
+ </div>
    <% @articles.each do |article| %>
+
          <div class="item">
              <div class="ui tiny image">
 
