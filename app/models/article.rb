@@ -2,8 +2,8 @@ class Article < ActiveRecord::Base
 acts_as_taggable_on :tags
 
 has_many :comments, dependent: :destroy
-has_many :invites
-has_many :sub_articles , class_name: 'Article', foreign_key: 'parent_id'
+has_many :invites, dependent: :destroy
+has_many :sub_articles , class_name: 'Article', foreign_key: 'parent_id', dependent: :destroy
 has_and_belongs_to_many :fav_users, join_table: :articles_users,class_name: 'User'
 
 belongs_to :user
