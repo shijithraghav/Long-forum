@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 acts_as_taggable_on :tags
-
+after_update :visibility_check
 has_many :comments, dependent: :destroy
 has_many :invites, dependent: :destroy
 has_many :sub_articles , class_name: 'Article', foreign_key: 'parent_id', dependent: :destroy
@@ -17,8 +17,10 @@ default_scope  { order(:created_at => :desc) }
 
 
 
-def self.search(search)
-  where("tags LIKE ?", "%#{search}%")
+def visibility_check
+  if self.visibility == "public"
+    Invite.where(:article_id => self.id).destroy_all
+  end
 end
 
 def self.popular
