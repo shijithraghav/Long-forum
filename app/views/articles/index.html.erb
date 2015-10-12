@@ -9,7 +9,14 @@
  <div class="ui relaxed divided items" id ="search-posts">
 
    <div class ="headings">
-   <%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link1'  %>
+     <div class="ui horizontal list">
+        <a class="item"><%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link1'  %></a>
+        <a class="item"><%= link_to "Private", articles_path(type: 'private'), :class => 'navbar-link1'  %></a>
+        <a class="item"><%= link_to "Public", articles_path(type: 'public'), :class => 'navbar-link1'  %></a>
+        <a class="item"><%= link_to "My Posts", articles_path(type: 'my'), :class => 'navbar-link1'  %></a>
+        <a class="item"><%= link_to "Top", articles_path(type: 'top'), :class => 'navbar-link1'  %></a>
+      </div>
+
  </div>
    <%= render @articles %>
 
