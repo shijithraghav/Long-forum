@@ -17,13 +17,8 @@
    <% @articles.each do |article| %>
 
          <div class="item">
-             <div class="ui tiny image">
-
-                <img data-name="<%= article.title%>" class="initialjs-avatar"/>
-
-             </div>
-             <div class="content">
-              <h3> <a class="ui header"  ><%= link_to truncate(article.title, length: 15) , article_path(article) %></a></h3>
+             <div class="a_content">
+              <h3> <a class="ui header"  ><%= link_to truncate(article.title, length: 15) , article_path(article), :class => 'article_name' %></a></h3>
                <div class="meta">
                  <a><%= time_ago_in_words(article.created_at) %> ago</a>
                  <a>Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></a>
@@ -32,17 +27,18 @@
 
                </div>
                <div class="extra">
-                 <div  class="ui circular avatar image">
-                   <img data-name="<%= article.user.username %>" class="initialjs-avatar"/>
-                 </div>
+
                   <%#= link_to article.user.username, article.user %><%= article.user.username %>
                </div>
              </div>
              <div class="ui tiny image">
                <div class="ui tiny statistics">
                  <div class="green statistic">
+                   <div class="fav_ico">
+                     <%= image_tag("Sprite_20px.png", :id => "fav_ico") %>
+                   </div>
                    <div class="value">
-                     <%= pluralize article.reputation_for(:votes).to_i,"" %>
+                     <%#= pluralize article.reputation_for(:votes).to_i,"" %>
                    </div>
                    <div class="label">
                      Votes
@@ -53,6 +49,9 @@
              <div class="ui tiny image">
                <div class="ui tiny statistics">
                  <div class="blue statistic">
+                   <div class="comment_ico">
+                     <%= image_tag("Sprite_20px.png", :id => "comment_ico") %>
+                   </div>
                    <div class="value">
                      <%= article.comments.count %>
                    </div>
@@ -63,7 +62,7 @@
                </div>
              </div>
          </div>
-
+<div class = "padding"></div>
      <% end %>
 <%= will_paginate @articles %>
 

@@ -23,7 +23,7 @@
       <div class="ui text container">
         <div href="#" class="header item">
           <div class="logoico">
-            <img id="logo_ico" src="Sprite_20px.png">
+            <%= image_tag("Sprite_20px.png", :id => "logo_ico") %>
           </div>
         <h2><p><font color="white">Forum</font></p></h2>
         </div>
@@ -45,10 +45,10 @@
         <div id="dropdown">
         <div class="ui simple dropdown item">
           <div class="userico">
-            <img id="user_ico" src="Sprite_20px.png">
+            <%= image_tag("Sprite_20px.png", :id => "user_ico") %>
           </div>
             <div class="menu">
-              <div class="item">Choice 1</div>
+              <div class="item"><%= link_to "Logout", destroy_user_session_path, :class => 'navbar-link'  %></div>
               <div class="item">Choice 2</div>
               <div class="item">Choice 3</div>
             </div>
@@ -108,7 +108,7 @@
       </div>-->
 
 <% end %>
-  <p class="navbar-text pull-right" style="padding-bottom: 25px">
+  <p class="navbar-text pull-right" style="padding-bottom: 21px">
 
 
 <% if notice %>
