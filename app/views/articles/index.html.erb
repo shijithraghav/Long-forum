@@ -38,4 +38,11 @@
              })
          });
    })
+
+   $(document).ready(function() {
+       $(".navbar-link1").on("click", function() {
+           $(".navbar-link1").removeClass("active");
+           $(this).addClass("active");
+       });
+   });
    </script>

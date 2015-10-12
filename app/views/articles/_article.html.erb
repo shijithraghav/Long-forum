@@ -14,37 +14,31 @@
          <%#= link_to article.user.username, article.user %><%= article.user.username %>
       </div>
     </div>
-    <div class="ui vertical divider">
- </div>
     <div class="ui tiny image">
-      <div class="ui tiny statistics">
-        <div class="green statistic">
+
+
           <div class="fav_ico">
             <%= image_tag("Sprite_20px.png", :id => "fav_ico") %><%= article.fav_users.count %>
           </div>
-          <div class="value">
-            <%#= pluralize article.reputation_for(:votes).to_i,"" %>
+          <div class="fav_value">
+            <%#= pluralize article.reputation_for(:votes).to_i,"" %><%= article.fav_users.count %>
           </div>
-          <div class="label">
-            Votes
-          </div>
-        </div>
-      </div>
+
+
+
     </div>
     <div class="ui tiny image">
-      <div class="ui tiny statistics">
-        <div class="blue statistic">
+
+
           <div class="comment_ico">
             <%= image_tag("Sprite_20px.png", :id => "comment_ico") %>
           </div>
-          <div class="value">
+          <div class="c_value">
             <%= article.comments.count %>
           </div>
-          <div class="label">
-            Comments
-          </div>
-        </div>
-      </div>
+
+
+
     </div>
 </div>
 
@@ -60,4 +54,5 @@
 $(document).ready(function(){
  $('.initialjs-avatar').initial();
 })
+
 </script>
