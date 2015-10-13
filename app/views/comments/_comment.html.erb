@@ -1,9 +1,11 @@
 
-  
-    <% @article.comments.each do |comment| %>
-      <a class="author"><%=comment.commenter%></a>
 
+    <% @article.comments.each do |comment| %>
+    <div class="com_body">
+      <%= raw comment.body %>
     </div>
+
+  
     <% end %>
     <script type="text/javascript">
     $(document).ready(function(){

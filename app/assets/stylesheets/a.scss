@@ -201,6 +201,7 @@ height: auto;
     float: right;
     margin-right: 315px;
     font-size: 14px;
+    padding-bottom: 35px;
 }
 
 a.navbar-link2{
@@ -311,6 +312,23 @@ a.edit_color{
   padding-bottom: 50px;
   border-bottom: 1px solid #f2f1ef;
 }
+
+.ui[class*="right floated"].segment {
+  float: left !important;
+}
+
+img{
+  width: 600px !important;
+}
+
+
+
+
+
+
+
+
+
 .comment_segment{
   margin-left: 15px;
 
