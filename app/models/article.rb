@@ -12,7 +12,7 @@ validates :title, presence: true,
                      length: { minimum: 5 }
 
 has_reputation :votes, source: :user, aggregated_by: :sum
-has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
+has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "150x150" }
 default_scope  { order(:created_at => :desc) }
 
 
