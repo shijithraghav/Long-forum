@@ -3,41 +3,46 @@
     <div class="a_content">
       <a class="ui header"  ><%= link_to truncate(article.title, length: 50) , article_path(article), :class => 'article_name' %></a>
       <div class="meta">
-        <a><%= time_ago_in_words(article.created_at) %> ago</a>
-        <a>Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></a>
+
       </div>
       <div class="description">
 
       </div>
       <div class="extra">
+        <a class ="navbar-link2"><%= time_ago_in_words(article.created_at) %> ago by</a>
+        <a class ="ar"><%= article.user.username %></a>
+        <div id="tag_ico">
 
-         <%#= link_to article.user.username, article.user %><%= article.user.username %>
+        </div>
+
+         <a><%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></a>
+         <%#= link_to article.user.username, article.user %>
       </div>
     </div>
     <div class="ui tiny image">
-
-
-          <div class="fav_ico">
-            <%= image_tag("Sprite_20px.png", :id => "fav_ico") %><%= article.fav_users.count %>
+<div class="index_fav">
+          <div class="fav">
+            <div id="fav_ico">
+            </div>
+            <div class="fav_value">
+                <%= article.fav_users.count %>
+            </div>
           </div>
-          <div class="fav_value">
-            <%#= pluralize article.reputation_for(:votes).to_i,"" %><%= article.fav_users.count %>
-          </div>
-
+        </div>
 
 
     </div>
     <div class="ui tiny image">
 
-
-          <div class="comment_ico">
-            <%= image_tag("Sprite_20px.png", :id => "comment_ico") %>
+    <div class="index_comment">
+            <div class="com">
+            <div id="comment_ico">
+            </div>
+            <div class="c_value">
+                <%= article.comments.count %>
+            </div>
           </div>
-          <div class="c_value">
-            <%= article.comments.count %>
-          </div>
-
-
+        </div>
 
     </div>
 </div>

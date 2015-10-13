@@ -22,8 +22,8 @@
   <div class="ui borderless main menu">
       <div class="ui text container">
         <div href="#" class="header item">
-          <div class="logoico">
-            <%= image_tag("Sprite_20px.png", :id => "logo_ico") %>
+          <div id="logo_ico">
+
           </div>
         <h2><p><font color="white">Forum</font></p></h2>
         </div>
@@ -44,8 +44,8 @@
       <div class = "item">
         <div id="dropdown">
         <div class="ui simple dropdown item">
-          <div class="userico">
-            <%= image_tag("Sprite_20px.png", :id => "user_ico") %>
+          <div id="user_ico">
+
           </div>
             <div class="menu">
               <div class="item"><%= link_to "Logout", destroy_user_session_path, :class => 'navbar-link'  %></div>
