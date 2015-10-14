@@ -86,16 +86,64 @@ input#tag.ui-autocomplete-input{
   background: url(/Sprite_20px.png) -20px -20px;
   float: left;
 }
+#comment_ico:hover{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -20px -40px;
+  float: left;
+}
 #fav_ico{
   width: 20px;
   height: 20px;
   background: url(/Sprite_20px.png) 0px -20px;
   float: left;
 }
+#yfav_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) 0px -60px;
+  float: left;
+}
 #tag_ico{
   width: 20px;
   height: 20px;
   background: url(/Sprite_20px.png) -40px -16px;
+}
+#up_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -20px -80px;
+  float: left;
+}
+#down_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) 0px -80px;
+  float: left;
+}
+#up_ico:hover{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -20px -100px;
+  float: left;
+}
+#down_ico:hover{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) 0px -100px;
+  float: left;
+}
+#aup_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -20px -120px;
+  float: left;
+}
+#adown_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) 0px -120px;
+  float: left;
 }
 .userico{
   height: 30px;
@@ -257,6 +305,13 @@ div#comment_ico{
   float: left;
   border-right: 1px solid #f2f1ef;
 }
+#fav1{
+  height: 20px;
+  width: 53px;
+  float: left;
+  margin: 17px 15px 14px 1px;
+
+}
 .fav{
   height: 20px;
   width: 53px;
@@ -299,6 +354,7 @@ div#comment_ico{
   float: right;
   font-size: 16px;
   color: #8e44ad;
+  margin: 17px 15px 14px 1px;
 }
 a.edit_color{
   color: #8e44ad;
@@ -344,7 +400,8 @@ img{
   font-size: 14px;
   font-weight: bold;
   float: left;
-  padding-right: 370px;
+  padding-right: 545px;
+  padding-bottom: 10px;
 }
 #showmenu{
   font-size: 16px;
@@ -353,9 +410,38 @@ img{
 }
 
 
+.c_body{
+  font-size: 14px;
+  color: #333;
+}
 
+.c_create{
+  padding-top: 20px;
+padding-bottom: 0px;
+float: left;
+}
+.render_c{
+  float: left;
+}
+.com_body{
+  width: 630px;
+  float: left;
+    border-bottom: 1px solid #f2f1ef;
+    padding-top: 15px;
+}
 
+.v_d_count{
+  float: left;
+}
+.v_up_count{
+  float: left;
+}
+.actions{
+  margin-bottom: 32px;
+    padding-left: 532px;
+    padding-top: 20px;
 
+}
 
 
 
@@ -480,10 +566,7 @@ float: left;
 .content{
   margin: 17px;
 }
-.actions{
-  height: 27px;
-  margin-bottom: 10px;
-}
+
 #votes{
   margin-top: 50px;
 }

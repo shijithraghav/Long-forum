@@ -26,9 +26,7 @@ Rails.application.routes.draw do
 
 
  end
-    resources :comments do
-     member { post :vote }
-   end
+    resources :comments 
 
    member { post :vote }
     get :autocomplete_tag_name, :on => :collection
@@ -51,6 +49,10 @@ end
 
   end
 
+
+  resources :comments do
+   member { post :vote }
+  end
 resources :users
 
   devise_for :users, :controllers => {:sessions => 'devise/sessions'}, :skip => [:sessions] do

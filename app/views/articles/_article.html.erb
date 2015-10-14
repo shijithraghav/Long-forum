@@ -22,8 +22,13 @@
     <div class="ui tiny image">
       <div class="index_fav">
           <div class="fav">
+            <%if current_user.fav_articles.include? article %>
+            <div id="yfav_ico">
+            </div>
+            <%else%>
             <div id="fav_ico">
             </div>
+            <%end%>
             <div class="fav_value">
                 <%= article.fav_users.count %>
             </div>

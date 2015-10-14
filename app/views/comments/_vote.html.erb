@@ -1,0 +1,16 @@
+<div class="v_up_count">
+   <%=  @comment.evaluations.where(value: '1').count %>
+</div>
+<%if  @comment.evaluation_value(current_user, @comment) == "upvote" %>
+ <%= link_to ('<div id="aup_ico"></div>').html_safe, vote_comment_path(@comment, type: "up"), method: "post"  , :remote => true%>
+<% else %>
+ <%= link_to ('<div id="up_ico"></div>').html_safe, vote_comment_path(@comment, type: "up"), method: "post"  , :remote => true%>
+<% end %>
+<div class="v_d_count">
+   <%=  @comment.evaluations.where(value: '-1').count %>
+</div>
+<%if @comment.evaluation_value(current_user, @comment) == "downvote" %>
+   <%= link_to ('<div id="adown_ico"></div>').html_safe, vote_comment_path(@comment, type: "down"), method: "post"  , :remote => true%>
+<% else %>
+ <%= link_to ('<div id="down_ico"></div>').html_safe, vote_comment_path(@comment, type: "down"), method: "post"  , :remote => true%>
+<% end %>
