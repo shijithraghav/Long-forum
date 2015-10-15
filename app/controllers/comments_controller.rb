@@ -4,18 +4,17 @@ class CommentsController < ApplicationController
 respond_to :html, :js
   def create
    @article = Article.find(params[:article_id])
-   @comment = @article.comments.create(comment_params)
+   @comment = @article.comments.new(comment_params)
    @comment.user = current_user
    @comment.commenter = current_user.username
    @comment.save
-   redirect_to article_path(@article)
+
  end
  def destroy
      @article = Article.find(params[:article_id])
-     @comment = @article.comments.find(params[:id])
-     @comment.destroy
-     redirect_to article_path(@article)
-   end
+     @comment = Comment.find(params[:id])
+     @error=true unless @comment.destroy
+ end
 
    def vote
      value = params[:type] == "up" ? 1 : -1

@@ -1,6 +1,6 @@
 <div class="ui reply form art" id="cform">
 
-<%= form_for([@article, @article.comments.build]) do |f| %>
+<%= form_for([@article, @article.comments.build],:remote => true, :html => { :id => 'new_comment' }) do |f| %>
 <p>
   <div class="ui form">
   <div class="field">
@@ -15,12 +15,12 @@
 </p>
 <p>
   <div class="actions">
-    <button class="ui blue basic button" type="submit">Create</button>
-    <button class="ui blue basic button" type="cancel" id = "cancel_button">Cancel</button>
+    <%= f.submit "Comment" , class:"ui button" %>
   </div>
 </p>
+<% end %>
 
 </div>
 </div>
-<% end %>
+<button class="ui blue basic button" id="cancel_button">Cancel</button>
 </div>

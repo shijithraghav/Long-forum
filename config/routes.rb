@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
  end
-    resources :comments 
+    resources :comments
 
    member { post :vote }
     get :autocomplete_tag_name, :on => :collection

@@ -1,7 +1,24 @@
+  <div class="a">
+      <div class="comment_header">
+          COMMENTS (<%= @article.comments.count %>)
 
+        </div>
+        <div class="add_comment">
+            +Add Comment
+          </div>
+
+  </div>
     <% @article.comments.each do |comment| %>
     <div class="com_body">
-      
+      <div class="comment" id="destroy_comment_<%=comment.id%>">
+      <div class="right_floated ">
+      <% if comment.user_id == current_user.id || @article.user_id == current_user.id %>
+        <%= link_to ('<i class="red remove icon"></i>').html_safe, [comment.article, comment],
+                 method: :delete,:remote => true,
+                 data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      </div>
+
       <div class="c_body">
         <%= raw comment.body %>
       </div>
@@ -30,16 +47,8 @@
           </div>
         </div>
       </div>
+      </div>
 
 
 
     <% end %>
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $('#cform').hide();
-      $('.initialjs-avatar').initial();
-      $('#showmenu').click(function() {
-                    $('#cform').slideToggle("fast");
-            });
-    })
-    </script>
