@@ -108,6 +108,7 @@ input#tag.ui-autocomplete-input{
   width: 20px;
   height: 20px;
   background: url(/Sprite_20px.png) -40px -16px;
+  float: left;
 }
 #up_ico{
   width: 20px;
@@ -260,6 +261,8 @@ a.navbar-link2{
 
 .extra{
   margin-top: 30px !important;
+  float: left;
+  width: auto !important;
 }
 #extra{
   margin-top: 7px !important;
@@ -376,6 +379,17 @@ a.edit_color{
 img{
   width: 600px !important;
 }
+.tags{
+  float: left;
+  margin-top: 27px;
+
+}
+.tag_content{
+  float: left;
+}
+
+
+
 
 
 
@@ -400,13 +414,19 @@ img{
   font-size: 14px;
   font-weight: bold;
   float: left;
-  padding-right: 545px;
+  padding-right: 410px;
   padding-bottom: 10px;
 }
 #showmenu{
   font-size: 16px;
   font-weight: bold;
   color: #e67e22;
+}
+.add_comment{
+  font-size: 16px;
+  font-weight: bold;
+  color: #e67e22;
+  float: left;
 }
 
 
@@ -540,12 +560,7 @@ float: left;
 .haiku{
   float: left;
 }
-.comments{
-  margin-top: 60px;
-}
-.ui.comments{
-  padding-top: 12px;
-}
+
 .ui.dividing.header{
   margin-top: 100px;
 }
