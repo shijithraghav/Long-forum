@@ -442,7 +442,7 @@ img{
 .c_create{
   padding-top: 20px;
 padding-bottom: 0px;
-float: left;
+float: right;
 }
 .render_c{
   float: left;
@@ -456,6 +456,7 @@ float: left;
 
 .v_d_count{
   float: left;
+  margin-left: 10px;
 }
 .v_up_count{
   float: left;
@@ -463,6 +464,11 @@ float: left;
 .actions{
   margin-bottom: 32px;
     padding-left: 532px;
+    padding-top: 20px;
+
+}
+.actions1{
+
     padding-top: 20px;
 
 }

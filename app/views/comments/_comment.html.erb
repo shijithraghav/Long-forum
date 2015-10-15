@@ -23,10 +23,18 @@
         <%= raw comment.body %>
       </div>
       <div class="c_create">
+        <div class="delete">
+        <% if comment.user_id == current_user.id %>
+        |  <%= link_to ('<div class="remove">Delete</div>').html_safe, [comment.article, comment],
+                   method: :delete,:remote => true,
+                   data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
         <a class ="navbar-link2"><%= time_ago_in_words(comment.created_at) %> ago by</a>
         <a class ="ar"><%= comment.user.username %></a>
+
       </div>
-      <div class="actions" >
+      <div class="actions1" >
         <div id="comment_<%=comment.id%>">
           <div class="v_up_count">
              <%= comment.evaluations.where(value: '1').count %>
