@@ -2,6 +2,7 @@
 @import "semantic-ui/collections/menu";
 @import "a.scss";
 @import "pop.scss";
+@import "new_post.scss";
 @import "header.scss";
 @import "rightsegment.scss";
 @import "jquery.tagit.css";
@@ -30,4 +31,5 @@
  *= require_a
  *= require_rightsegment
  *= require_header
+ *= require_new_post
  */

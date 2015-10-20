@@ -8,17 +8,18 @@
   margin: 7px;
   width: 280px;
   height: 36px;
-  background-color: #493172 !important;
-
 }
-.ui-autocomplete-input{
+input#tag.ui-autocomplete-input{
+  //background-color: #493172 !important;
   height: 34px;
   width: 280px;
-  background-color: #5a457e !important;
   text-color: #6b588c;
   text-size: 16px;
   border-radius: 4px;
-    color: white !important;
+  background-color: #5a457e;
+}
+input:focus{
+  background-color: #fff !important;
 }
 .ui.text.container{
 
@@ -68,10 +69,6 @@ body{
 .ui.relaxed.divided.items{
   width: 1000px;
   margin: 0 auto;
-}
-
-input#tag.ui-autocomplete-input{
-  color: #6b588c !important;
 }
 
 #user_ico{
@@ -218,6 +215,10 @@ a.article_name:hover{
   border-top-width: 0px;
 
 }
+.ui.tiny.image:hover{
+  background-color: #FFF0E0;
+}
+
 
 .fav_ico{
   width: 20px;
@@ -515,7 +516,9 @@ float: right;
   margin-left: 20px;
 
 }
-
+div.item:hover{
+  background-color: #FFF0E0;
+}
 
 
 

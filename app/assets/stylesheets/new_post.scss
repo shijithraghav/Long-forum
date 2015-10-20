@@ -1,0 +1,43 @@
+
+#create_post{
+ height: auto;
+ background-color: white;
+}
+#create_post .new_post_padding{
+ padding: 30px;
+ padding-right: 280px;
+ padding-bottom: 75px;
+}
+#create_post .post_title{
+ font-size: 16px;
+ font-weight: bold;
+ color: #333;
+}
+#create_post .field{
+ padding-top: 20px;
+ padding-bottom: 40px;
+}
+
+#remove_pad{
+     margin-top: -10px;
+}
+
+#article_visibility_public{
+ padding-right: 10px;
+}
+
+#private_name ,#public_name{
+ padding-right: 50px;
+ padding-left: 10px;
+}
+#create_post .ui.button{
+ background-color: #8e44ad;
+ color: white;
+ font-size: 16px;
+ border-radius: 4px;
+ float: left;
+
+}
+.route_home{
+  float: left;
+}
