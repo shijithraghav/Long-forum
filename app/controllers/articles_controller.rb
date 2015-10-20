@@ -13,11 +13,16 @@ class ArticlesController < ApplicationController
  end
 
  def show
-   @users = User.all
+   @users = User.where("id NOT IN (?)",current_user)
      @article = Article.find(params[:id])
-   @subarticles = Article.where(:parent_id => @article.id )
-
+     if @article.user_id == current_user.id || @article.visibility == "public" || Invite.where(:user_id => current_user.id , :article_id => @article.id ,:invite_accepted => 'true').present?
+          @sub_articles = @article.sub_articles
+      else
+        render :file => 'public/422.html'
+      end
+      @comments = Comment.where(:article_id => @article.id).paginate(:per_page => 5, :page => params[:page])
   end
+
   def index
     if params[:tag]
       @tags = true
@@ -41,10 +46,10 @@ class ArticlesController < ApplicationController
   @article = Article.new(article_params)
   @article.user_id = current_user.id
   if @article.save
-  redirect_to @article
-else
-  render 'new'
-end
+    redirect_to @article
+  else
+    render 'new'
+  end
 end
 
 def update
@@ -86,6 +91,7 @@ def invite
 if Invite.where(:user_id => @invite.user_id, :article_id => @invite.article_id).blank?
   @invite.save
 end
+
 
 end
 

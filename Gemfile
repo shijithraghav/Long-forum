@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'will_paginate'
 
 
+gem 'jquery-ui-rails'
+
+
 gem 'autumn'
 
 gem 'initialjs-rails'

@@ -53,7 +53,10 @@ end
   resources :comments do
    member { post :vote }
   end
-resources :users
+resources :users do
+  get :autocomplete_user_email, :on => :collection
+end
+resources :users, only: [:show]
 
   devise_for :users, :controllers => {:sessions => 'devise/sessions'}, :skip => [:sessions] do
     get '/sign_in' => 'devise/sessions#new', :as => :new_user_session

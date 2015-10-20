@@ -80,6 +80,18 @@ input#tag.ui-autocomplete-input{
   background: url(/Sprite_20px.png) -20px 0px;
   float: left;
 }
+#edit_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -40px -80px;
+  float: left;
+}
+#edit_ico:hover{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -40px -100px;
+  float: left;
+}
 #comment_ico{
   width: 20px;
   height: 20px;
@@ -232,6 +244,7 @@ a.article_name:hover{
 .ui.left.floated.segment{
   width: 692px;
     height: auto;
+    padding: 0px !important;
 
 }
 .ui.right.floated.segment{
@@ -275,9 +288,13 @@ a{
   color: #999;
 }
 .segment_content{
-  margin-left: 15px;
+  margin: 20px;
 
   word-wrap: break-word;
+}
+.segment1_content{
+  word-wrap: break-word;
+  border-bottom: 1px solid #f2f1ef;
 }
 .ui.header{
   font-size: 20px !important;
@@ -310,7 +327,7 @@ div#comment_ico{
 }
 #fav1{
   height: 20px;
-  width: 53px;
+  width: 65px;
   float: left;
   margin: 17px 15px 14px 1px;
 
@@ -329,7 +346,7 @@ div#comment_ico{
 }
 .com{
   height: 20px;
-    width: 53px;
+    width: 90px;
     float: left;
     margin: 18px 15px 14px 31px;
 }
@@ -369,7 +386,7 @@ a.edit_color{
 }
 .article_text{
   padding-bottom: 50px;
-  border-bottom: 1px solid #f2f1ef;
+
 }
 
 .ui[class*="right floated"].segment {
@@ -404,14 +421,15 @@ img{
 
 
 .comment_segment{
-  margin-left: 15px;
 
+  float: left;
   word-wrap: break-word;
 }
 
 
 .comment_body{
   padding-top: 30px;
+  float: left;
 }
 .comment_header{
   color: #999;
@@ -451,6 +469,7 @@ float: right;
 }
 .render_c{
   float: left;
+
 }
 .com_body{
   width: 630px;
@@ -479,11 +498,23 @@ float: right;
 }
 .a{
   float: left;
+  margin-left: 20px;
 }
 
+.b{
+  float: right;
+}
+.c{
+  float: left;
+  border-bottom: 1px solid #f2f1ef;
+  padding-bottom: 20px;
 
+}
+.c1{
+  float: left;
+  margin-left: 20px;
 
-
+}
 
 
 
