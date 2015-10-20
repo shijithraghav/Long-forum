@@ -30,7 +30,6 @@
 //= require semantic-ui/modal
 //= require semantic-ui/dropdown
 //= require turbolinks
-//= require jquery.modal
 
 $( document ).ready(function(){
   $('.initialjs-avatar').initial();
