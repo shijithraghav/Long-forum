@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
 acts_as_taggable_on :tags
 after_update :visibility_check
+has_one  :parent_article, class_name: 'Article',foreign_key: 'id',primary_key: 'parent_id'
 has_many :comments, dependent: :destroy
 has_many :invites, dependent: :destroy
 has_many :sub_articles , class_name: 'Article', foreign_key: 'parent_id', dependent: :destroy

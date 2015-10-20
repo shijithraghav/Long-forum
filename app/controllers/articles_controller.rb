@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
  def show
    @users = User.where("id NOT IN (?)",current_user)
      @article = Article.find(params[:id])
-     if @article.user_id == current_user.id || @article.visibility == "public" || Invite.where(:user_id => current_user.id , :article_id => @article.id ,:invite_accepted => 'true').present?
+     if @article.user_id == current_user.id || @article.visibility == "public" || Invite.where(:user_id => current_user.id , :article_id => @article.id ,:status => 'true').present?
           @sub_articles = @article.sub_articles
       else
         render :file => 'public/422.html'
@@ -88,7 +88,7 @@ end
 
 def invite
 @invite = Invite.new(invite_params)
-if Invite.where(:user_id => @invite.user_id, :article_id => @invite.article_id).blank?
+if Invite.where(:user_id => @invite.user_id, :article_id => @invite.article_id).blank? && @invite.article.user_id == current_user.id && @invite.article.visibility == "private"
   @invite.save
 end
 
