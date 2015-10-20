@@ -5,3 +5,35 @@
 .ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.tagit-autocomplete{
   z-index: 2147483647;
 }
+div.w2ui-msg-title{
+  height: 0px !important;
+  padding: 0px;
+  background-color: white;
+  border-bottom: 0px solid #bfbfbf !important;
+}
+div.w2ui-msg-body.w2ui-msg-no-buttons{
+  background-color: white !important;
+}
+.w2ui-popup .w2ui-msg-title{
+  padding: 0px !important;
+}
+.w2ui-popup{
+  background-color: #fff !important;
+}
+#invite_heading{
+  font-size: 16px;
+    padding-left: 21px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+}
+#invite_search{
+  padding-top: 21px;
+    padding-left: 13px;
+}
+#shared_with{
+  float: left;
+    font-size: 14px;
+    padding: 11px;
+
+}
