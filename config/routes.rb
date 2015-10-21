@@ -23,6 +23,7 @@ Rails.application.routes.draw do
  end
  collection do
    get :favorite
+   get :invite_popup
 
 
  end
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
  collection do
    post :invite
    get :invite
+
 
 end
 
