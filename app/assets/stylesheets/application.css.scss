@@ -2,6 +2,7 @@
 @import "semantic-ui/collections/menu";
 @import "a.scss";
 @import "pop.scss";
+@import "user.scss";
 @import "new_post.scss";
 @import "header.scss";
 @import "rightsegment.scss";
@@ -32,4 +33,5 @@
  *= require_rightsegment
  *= require_header
  *= require_new_post
+ *= require_user
  */
