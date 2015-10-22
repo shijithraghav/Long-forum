@@ -259,7 +259,7 @@ height: auto;
   height: auto;
 }
 .articlename{
-   
+
     margin-right: 315px;
     font-size: 14px;
     padding-bottom: 35px;
@@ -403,21 +403,22 @@ img{
 .tag_content{
   float: left;
 }
+
+
+
+
+
+
+
+
+
+
+
 .comments{
   float: left;
   width: 600px;
   border-bottom: 1px solid #f2f1ef;
 }
-
-
-
-
-
-
-
-
-
-
 
 .comment_segment{
 
@@ -507,17 +508,24 @@ float: right;
   float: left;
   border-bottom: 1px solid #f2f1ef;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 
 }
 .c1{
   float: left;
-  margin-left: 20px;
+
 
 }
 div.item:hover{
   background-color: #FFF0E0;
 }
-
+.actions .ui.button{
+  background-color: #8e44ad;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+}
 
 
 
