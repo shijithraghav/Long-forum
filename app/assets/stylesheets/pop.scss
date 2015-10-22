@@ -30,10 +30,30 @@ div.w2ui-msg-body.w2ui-msg-no-buttons{
 #invite_search{
   padding-top: 21px;
     padding-left: 13px;
+    float: left;
 }
 #shared_with{
   float: left;
     font-size: 14px;
     padding: 11px;
 
+}
+#item{
+  height: auto;
+  width: auto;
+  float: left;
+  padding: 10px;
+  font-size: 14px;
+  color: #8e44ad;
+}
+div.ui.input{
+  float: left;
+}
+form{
+  float: left;
+}
+#input_id{
+  padding-right: 300px;
+  float: left;
+  padding-bottom: 10px;
 }

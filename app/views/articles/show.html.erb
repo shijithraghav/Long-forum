@@ -148,12 +148,14 @@
             Invite People
         </div>
         <div id ="invite_search">
-          <div class="ui input">
-            <%= autocomplete_field_tag :email, params[:email], autocomplete_user_email_users_path, :class=>"some" , :update_elements => {}, :placeholder =>"Type user's name" %>
-         </div>
           <div style="">
           </div>
             <%= form_tag url_for(invite_articles_path),name:'ds', :remote => true do %>
+            <div id= "input_id">
+            <div class="ui input">
+              <%= autocomplete_field_tag :email, params[:email], autocomplete_user_email_users_path, :class=>"some" , :update_elements => {}, :placeholder =>"Type user's name" %>
+           </div>
+         </div>
             <%= hidden_field_tag :user_id %>
            <%= hidden_field_tag :article_id, @article.id %>
             <%= hidden_field_tag :status, 'false' %>
@@ -228,7 +230,8 @@ $('.some').bind('railsAutocomplete.select', function(event, data){
       $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][user_id]" , value='+data.item.id+' >');
       $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][article_id]", value= <%= @article.id %> >');
       $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][status]", value= false >');
-      $('#shared_with').append('<div class ="item">' + this.value + '</div>');
+      $('form[name=ds]').append('<div id ="item">' + data.item.value + '</div>');
+
     });
 // overlay based on the same HTML
 });
