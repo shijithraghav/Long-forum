@@ -160,10 +160,8 @@
            <%= hidden_field_tag :article_id, @article.id %>
             <%= hidden_field_tag :status, 'false' %>
             <div id="shared_with"> Shared with :</div>
-            <%= submit_tag "Invite" %>
+            <%= submit_tag "Invite", class:"ui button" %>
             <% end %>
-
-            <div id ="invited"> </div>
         </div>
     </div>
     </div>
@@ -231,7 +229,7 @@ $('.some').bind('railsAutocomplete.select', function(event, data){
       $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][article_id]", value= <%= @article.id %> >');
       $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][status]", value= false >');
       $('form[name=ds]').append('<div id ="item">' + data.item.value + '</div>');
-
+      $('form[name=ds]').append('<div id="shared_with1"></div>');
     });
 // overlay based on the same HTML
 });

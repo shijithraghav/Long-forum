@@ -49,11 +49,14 @@ div.w2ui-msg-body.w2ui-msg-no-buttons{
 div.ui.input{
   float: left;
 }
-form{
-  float: left;
-}
 #input_id{
   padding-right: 300px;
   float: left;
   padding-bottom: 10px;
+}
+#invite_search .ui.button{
+  background-color: #8e44ad;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
 }
