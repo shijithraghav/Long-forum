@@ -44,10 +44,17 @@
         </div>
       </div>
       <div class="all_invites">
+        <% @invites.each do |invite| %>
         <div class="each_invites">
-
+          <div class="invited_p">
+              <div id="invited_p"><%= invite.article.user.username %></div>
+                <div id="invited_a">invited you to join his post</div>
+                <a class ="invite_link"><%= time_ago_in_words(invite.created_at) %> ago</a>
+          </div>
+                 <%= link_to "Accept" ,  invite_accepted_article_path(invite_id:invite.id),method: "post"  %>
+              <%= link_to "Reject" ,  invite_reject_article_path(invite_id:invite.id),method: "delete"  %>
         </div>
-
+        <% end %>
       </div>
 
     </div>
