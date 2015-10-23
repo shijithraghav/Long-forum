@@ -19,12 +19,17 @@
 
  </div>
    <%= render @articles %>
+   <div class ="page">
+     <div class="digg_pagination">
+         <%= will_paginate @invites, :container => false %>
+     </div>
+   </div>
 
 
 
  </div>
 </div>
-<%= will_paginate @articles %>
+
 <script type="text/javascript">
    $(document).ready(function(){
      $('input[name=tag]').keyup( function () {

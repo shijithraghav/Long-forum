@@ -398,12 +398,16 @@ img{
 .tags{
   float: left;
   margin-top: 27px;
+  margin-left: 15px;
 
 }
 .tag_content{
   float: left;
 }
-
+.a_content .tags a{
+  color: #999999;
+  padding-right: 15px;
+}
 
 
 
