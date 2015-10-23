@@ -40,7 +40,7 @@
     <div class="right_segment">
       <div class="user_invite_head">
         <div class="in_heading">
-          INVITATIONS(  <%= current_user.invites.count %>)
+          INVITATIONS(  <%= current_user.invites.where(:status => 'false').count %>)
         </div>
       </div>
       <div class="all_invites">
