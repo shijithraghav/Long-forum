@@ -7,7 +7,7 @@
 
         </div>
         <div class="add_comment">
-            +Add Comment
+            <a href="#" class="invite_more">+Add Comment<a>
           </div>
 
   </div>
@@ -64,6 +64,8 @@
 </div>
 
 
-<div class ="b">
-<%= will_paginate @comments, page_links: false %>
+<div class ="page">
+  <div class="digg_pagination">
+      <%= will_paginate @comments, :container => false %>
+  </div>
 </div>

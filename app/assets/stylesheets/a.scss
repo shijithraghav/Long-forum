@@ -60,6 +60,18 @@ a.navbar-link1{
 }
 #dropdown{
   color: white;
+
+}
+.show_edit #dropdown{
+  border: 1px solid #f2f1ef;
+  border-radius: 4px;
+}
+.show_edit #dropdown:hover{
+  border: 1px solid #8e44ad;
+  border-radius: 4px;
+}
+.show_edit .item:hover{
+  background-color: white;
 }
 
 body{
@@ -82,12 +94,16 @@ body{
   height: 20px;
   background: url(/Sprite_20px.png) -40px -80px;
   float: left;
+  margin-bottom: 5px;
+  margin-top: 5px;
+
 }
 #edit_ico:hover{
   width: 20px;
   height: 20px;
   background: url(/Sprite_20px.png) -40px -100px;
   float: left;
+
 }
 #comment_ico{
   width: 20px;
@@ -373,7 +389,7 @@ div#comment_ico{
   float: right;
   font-size: 16px;
   color: #8e44ad;
-  margin: 17px 15px 14px 1px;
+  margin: 10px 15px 10px 1px;
 }
 a.edit_color{
   color: #8e44ad;
@@ -406,9 +422,12 @@ img{
 }
 .a_content .tags a{
   color: #999999;
-  padding-right: 15px;
+  padding-right: 5px;
+  padding-left: 10px;
 }
-
+.t_ico{
+  float: left;
+}
 
 
 
