@@ -4,6 +4,7 @@
 @import "pop.scss";
 @import "user.scss";
 @import "new_post.scss";
+@import "willpage.scss";
 @import "header.scss";
 @import "rightsegment.scss";
 @import "jquery.tagit.css";
@@ -34,4 +35,5 @@
  *= require_header
  *= require_new_post
  *= require_user
+ *= require_willpage
  */
