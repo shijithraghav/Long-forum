@@ -35,6 +35,7 @@ $(document).ready(function(){
           </div>
         <h2><p><font color="white"><%= link_to 'Home', root_url, :class => 'header'%></font></p></h2>
         </div>
+        <% if user_signed_in? %>
         <div class="item">
           <div class="ui input">
             <form action="<%= articles_path %>" data-remote="true" method="get" >
@@ -82,39 +83,6 @@ $(document).ready(function(){
           </div>-->
       </div>
     </div>
-  <% if user_signed_in? %>
-  <!--<div class="search">
-
-</div>
-    <div class="ui one column center aligned grid ">
-        <button class="small ui button">
-          <i class="star yellow icon"></i><%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link'  %>
-
-        </button>
-
-        <button class="small ui button">
-          <i class="privacy icon"></i><%= link_to "Private", articles_path(type: 'private'), :class => 'navbar-link'  %>
-
-        </button>
-
-
-        <button class="small ui button">
-          <i class="public icon"></i><%= link_to "Public", articles_path(type: 'public'), :class => 'navbar-link'  %>
-
-        </button>
-
-
-        <button class="small ui button">
-        <i class="user icon"></i><%= link_to "My Posts", articles_path(type: 'my'), :class => 'navbar-link'  %>
-
-        </button>
-
-        <button class="small ui button">
-        <i class="top icon"></i><%= link_to "Top", articles_path(type: 'top'), :class => 'navbar-link'  %>
-
-        </button>
-
-      </div>-->
 
 <% end %>
   <p class="navbar-text pull-right" style="padding-bottom: 21px">

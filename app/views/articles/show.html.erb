@@ -12,6 +12,7 @@
 <div class="ui container">
   <div class="segments">
 <div class="ui relaxed divided items" id ="search-posts">
+  <div class="titles">
     <div class="route_title">
        <%= link_to 'Home >', articles_path, :class => 'navbar-link1' %>
      </div>
@@ -23,7 +24,8 @@
      <div class ="articlename">
        <%= truncate(@article.title, length: 50) %>
      </div>
-
+   </div>
+   
   <div class="ui left floated segment">
     <div class="segment1_content">
     <div class="segment_content">
@@ -187,8 +189,17 @@
            <%= hidden_field_tag :article_id, @article.id %>
             <%= hidden_field_tag :status, 'false' %>
             <div id="shared_with"> Shared with :</div>
+
+            <div id="submit_tags">
             <%= submit_tag "Invite", class:"ui button" %>
+
+
+            <button class="ui blue basic button" onclick="w2popup.close()" >Cancel</button>
+          </div>
+
+
             <% end %>
+
         </div>
     </div>
     </div>
@@ -235,12 +246,15 @@ $('.some').bind('railsAutocomplete.select', function(event, data){
       $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][status]", value= false >');
       $('form[name=ds]').append('<div id ="item">' + data.item.value + '</div>');
       $('form[name=ds]').append('<div id="shared_with1"></div>');
+      $('input#email').val('');
     });
 // overlay based on the same HTML
+
 });
 $('#delete_p').click(function(){
 $('#delete_post').w2popup();
 });
+
 })
 /*$(document).ready(function(){
   $('#cinvite').hide();
