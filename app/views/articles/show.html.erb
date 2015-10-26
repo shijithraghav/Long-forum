@@ -64,10 +64,16 @@
               </div>
                 <div class="menu" id="dropdown_user">
                   <div class="item"><%= link_to 'Edit Post', edit_article_path(@article), :class => 'navbar-link3'  %></div>
-                  <div class="item"><%= link_to 'Delete', article_path(@article),
+
+                  <div id="delete_p"><div class="item"><a href="#">Delete</a></div>
+                    <div id="delete_post" style="display:none; width: 400px; height: 150px; overflow: auto"> Are you Sure you want to delete this post?
+                  <div class="item"><%= link_to ('<button class="ui button">Delete</button>').html_safe, article_path(@article),
                  method: :delete,
-                 :class => 'navbar-link3',
-                 data: { confirm: 'Are you sure?' } %></div>
+                 :class => 'navbar-link3' %>
+                  </div>
+                </div>
+                </div>
+
                 </div>
               </div>
             </div>
@@ -234,8 +240,9 @@ $('.some').bind('railsAutocomplete.select', function(event, data){
 // overlay based on the same HTML
 });
 
-
-
+$('#delete_p').click(function(){
+$('#delete_post').w2popup();
+});
 
 
 
