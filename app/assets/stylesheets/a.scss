@@ -62,9 +62,13 @@ a.navbar-link1{
   color: white;
 
 }
+div#user_click.ui.simple.dropdown.item{
+  margin-left: 0px;
+}
 .show_edit #dropdown{
   border: 1px solid #f2f1ef;
   border-radius: 4px;
+
 }
 .show_edit #dropdown:hover{
   border: 1px solid #8e44ad;
@@ -171,6 +175,50 @@ body{
   background: url(/Sprite_20px.png) 0px -120px;
   float: left;
 }
+
+#user_click{
+  padding-top: 14px;
+  padding-bottom: 10px;
+  margin-left: 40px;
+}
+#user_click .pointer{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-top: 0 solid transparent;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #8e44ad;
+  display: block;
+  width: 0;
+  z-index: 1;
+  top: -13px;
+  left: 83px;
+}
+#user_click .pointer:after{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-top: 0 solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 12px solid white;
+  display: block;
+  /* width: 0; */
+  z-index: 1;
+  top: 1px;
+  left: -10px;
+}
+
+.ui.simple.dropdown .menu {
+  left: -80px;
+}
+
+.ui.horizontal.list.active a.navbar-link1{
+  border-bottom:3px solid #e67e22;
+}
+
+
 .userico{
   height: 30px;
   border-radius: 4px;
@@ -240,12 +288,7 @@ a.article_name:hover{
   width: 20px;
   margin: 32px;
 }
-.navbar-link1.active{
-  color: black;
-  border-style: solid;
-  border-width: 0px 0px 1px 0px;
-  border-color: yellow;
-}
+
 
 .comment_ico{
   width: 20px;

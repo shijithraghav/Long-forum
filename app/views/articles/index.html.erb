@@ -8,16 +8,17 @@
 
  <div class="ui relaxed divided items" id ="search-posts">
 
-   <div class ="headings">
-     <div class="ui horizontal list">
-        <a class="item"><%= link_to "Favorites", favorite_articles_path, :class => 'navbar-link1'  %></a>
-        <a class="item"><%= link_to "Private", articles_path(type: 'private'), :class => 'navbar-link1'  %></a>
-        <a class="item"><%= link_to "Public", articles_path(type: 'public'), :class => 'navbar-link1'  %></a>
-        <a class="item"><%= link_to "My Posts", articles_path(type: 'my'), :class => 'navbar-link1'  %></a>
-        <a class="item"><%= link_to "Top", articles_path(type: 'top'), :class => 'navbar-link1'  %></a>
-      </div>
 
- </div>
+      <div id="sort_list">
+      <ul>
+        <li class="active"><%= link_to"All posts" , articles_path(:type => 'public') %></li>
+        <li><%= link_to"My posts" , articles_path(:type => 'my') %></li>
+        <li><%= link_to"Private" , articles_path(:type => 'private') %></li>
+        <li><%= link_to"Favorites" , articles_path(:type =>'favorite') %></li>
+        <li><%= link_to"Top" , articles_path(:type => 'top') %></li>
+      </ul>
+    </div>
+
    <%= render @articles %>
    <div class ="page">
      <div class="digg_pagination">
@@ -44,10 +45,18 @@
          });
    })
 
-   $(document).ready(function() {
-       $(".navbar-link1").on("click", function() {
-           $(".navbar-link1").removeClass("active");
-           $(this).addClass("active");
-       });
-   });
+
+
+   $(document).ready(function(){
+       $(function() {
+            var p_url = '/'+ window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+            $("ul a").each(function(){
+                 if($(this).attr("href") == p_url  )
+                 {
+                   $(this).parent().parent().children().removeClass('active')
+                   $(this).parent().addClass("active");
+                 }
+            })
+     });
+     })
    </script>

@@ -27,6 +27,7 @@ ul.tagit li.tagit-choice a.tagit-close {
 }
 ul.tagit li.tagit-choice .tagit-close {
     right: .4em;
+    top: 39%;
 }
 ul.tagit li.tagit-choice .ui-icon {
     display: none;
@@ -94,5 +95,3 @@ ul.tagit input[type="text"] {
 
 .tagit-autocomplete .ui-widget-content { border: 1px solid #aaaaaa; }
 .tagit .ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px,1px,1px,1px); }
-
-

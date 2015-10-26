@@ -12,7 +12,7 @@
             <div id="tag_ico">
             </div>
           </div>
-         <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %>
+         <%= raw article.tag_list[0,8].map { |t| link_to truncate(t, length: 10), tag_path(t) }.join(' ') %>
          <%#= link_to article.user.username, article.user %>
 
        </div>

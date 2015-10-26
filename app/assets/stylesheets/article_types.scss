@@ -1,0 +1,35 @@
+#sort_list ul li{
+  display: inline;
+  padding-right: 40px;
+}
+#sort_list a{
+  color: #999999;
+  font-size: 14px;
+}
+#sort_list ul {
+
+  margin-left: -33px;
+}
+
+#sort_list{
+  margin-top: 50px;
+  margin-bottom: 40px;
+
+}
+
+#sort_list  a:hover{
+    border-bottom:3px solid #e67e22;
+
+}
+
+#sort_list .active a{
+  border-bottom:3px solid #e67e22;
+}
+
+#post{
+  background-color: white;
+}
+
+#spacing_index{
+  margin-bottom: 20px;
+}

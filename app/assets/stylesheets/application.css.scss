@@ -9,6 +9,7 @@
 @import "rightsegment.scss";
 @import "jquery.tagit.css";
 @import "tagit.ui-zendesk.css";
+@import "article_types.scss";
 .logo {
   background: url('logo.jpg')
 }
@@ -36,4 +37,5 @@
  *= require_new_post
  *= require_user
  *= require_willpage
+ *= require_article_types
  */

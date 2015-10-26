@@ -11,7 +11,7 @@
 
 <div class="ui container">
   <div class="segments">
-
+<div class="ui relaxed divided items" id ="search-posts">
     <div class="route_title">
        <%= link_to 'Home >', articles_path, :class => 'navbar-link1' %>
      </div>
@@ -58,11 +58,12 @@
           <% if @article.user_id == current_user.id %>
           <div class = "item">
             <div id="dropdown">
-            <div class="ui simple dropdown item">
+            <div class="ui simple dropdown item" id="user_click">
               <div id="edit_ico">
 
               </div>
                 <div class="menu" id="dropdown_user">
+                  <div class="pointer"></div>
                   <div class="item"><%= link_to 'Edit Post', edit_article_path(@article), :class => 'navbar-link3'  %></div>
 
                   <div id="delete_p"><div class="item"><a href="#">Delete</a></div>
@@ -202,14 +203,13 @@
 </div>
 </div>
 </div>
+</div>
 
 
 
 
 <script type="text/javascript">
 $(document).ready(function(){
-
-
   $('#cform').hide();
   $('.add_comment').click(function() {
                 $('#cform').slideToggle("fast");
@@ -220,14 +220,8 @@ $(document).ready(function(){
                 $('.add_comment').show();
                 });
   $('#cform').insertBefore('.a');
-
-
-
-
-
 $('#pop').click(function(){
 $('#pop_body').w2popup();
-
 $('.some').bind('railsAutocomplete.select', function(event, data){
     /* Do something here */
        $('input#user_id').val(data.item.id);
@@ -239,15 +233,10 @@ $('.some').bind('railsAutocomplete.select', function(event, data){
     });
 // overlay based on the same HTML
 });
-
 $('#delete_p').click(function(){
 $('#delete_post').w2popup();
 });
-
-
-
 })
-
 /*$(document).ready(function(){
   $('#cinvite').hide();
   $('.invite').click(function() {

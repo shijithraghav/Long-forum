@@ -1,10 +1,59 @@
 
 <div class="ui container">
     <div class="segments">
+<div class="ui relaxed divided items" id ="search-posts">
 
 
 
-<%= render 'form' %>
 
+
+
+         <div id="route_info">
+           <div class="route_home">
+             <%= link_to 'Home >', root_url%>
+           </div>
+           <div class="route_title">
+             New Post
+           </div>
+         </div>
+
+         <div id="create_post">
+             <div class="new_post_padding">
+               <div class="post_title">
+                   Post Title
+               </div>
+                <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+                         <div class="ui form field">
+                             <%= f.text_field :title,  :placeholder => 'Title' %>
+                         </div>
+                         <div class="post_title" id="head_pad">
+                             Content
+                         </div>
+                         <div class="field">
+                             <%= f.cktext_area :text, :class => 'someclass', :ckeditor => {:language => 'english',:uiColor => '#FFFFFF', :toolbar => 'mini' } %>
+                         </div>
+                         <div class="post_title">
+                             Tags
+                         </div>
+                         <div class="field" id="remove_pad">
+                           <ul id="article-tags"></ul>
+                         </div>
+                         <div class="post_title">
+                             Type
+                         </div>
+                         <div class="field">
+                             <%= f.radio_button 'visibility', 'public', :checked => true %>
+                             <%= f.label :public_name, 'Public', :id => "public_name"  %>
+                             <%= f.radio_button 'visibility', 'private' %>
+                             <%= f.label :private_name, 'Private', :id => "private_name"  %>
+                         </div>
+                       <%= f.submit "Submit Post" ,class:"ui button"  %>
+               <% end %>
+               <%= button_to "Cancel", root_url , method:"get" , class: "ui violet basic button" ,id:"cancel_button"  %>
+             </div>
+         </div>
+
+
+</div>
 </div>
 </div>
