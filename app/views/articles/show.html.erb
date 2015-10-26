@@ -135,6 +135,26 @@
        <%end%>
   </div>
 </div>
+
+
+<div class="subpost_container">
+  <div class="subpost_head">
+     SUBPOSTS (<%=@sub_articles.count%>)
+  </div>
+  <div class="subpost_list">
+    <%  @sub_articles.each do |t| %>
+      <div class="subpost">
+        <%= %>
+        <%=link_to t.title , article_path(t) %>
+     </div>
+       <%end%>
+  </div>
+  <div class="new_subpost">
+      <%= link_to '+ Create Subposts' , subpostnew_article_path(:parent_type => @article.id) %>
+  </div>
+</div>
+
+
 <% if @article.visibility == "private" &&current_user.id == @article.user_id %>
 <div class="share_container">
   <div class="share_head">
@@ -179,22 +199,7 @@
 
 
 
-<div class="subpost_container">
-  <div class="subpost_head">
-     SUBPOSTS (<%=@sub_articles.count%>)
-  </div>
-  <div class="subpost_list">
-    <%  @sub_articles.each do |t| %>
-      <div class="subpost">
-        <%= %>
-        <%=link_to t.title , article_path(t) %>
-     </div>
-       <%end%>
-  </div>
-  <div class="new_subpost">
-      <%= link_to '+ Create Subposts' , subpostnew_article_path(:parent_type => @article.id) %>
-  </div>
-</div>
+
 
 
 
