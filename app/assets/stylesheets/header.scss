@@ -8,6 +8,9 @@
   display: block;
 
 }
+.ui.simple.dropdown .menu {
+  left: -80px !important;
+}
 #dropdown_user.menu{
   margin-top: 12px;
 }
