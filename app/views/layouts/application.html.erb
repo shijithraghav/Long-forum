@@ -29,13 +29,14 @@ $(document).ready(function(){
 
   <div class="ui borderless main menu">
       <div class="ui text container">
+        <% if user_signed_in? %>
         <div href="#" class="header item">
           <div id="logo_ico">
 
           </div>
+
         <h2><p><font color="white"><%= link_to 'Home', root_url, :class => 'header'%></font></p></h2>
         </div>
-        <% if user_signed_in? %>
         <div class="item">
           <div class="ui input">
             <form action="<%= articles_path %>" data-remote="true" method="get" >
@@ -81,17 +82,37 @@ $(document).ready(function(){
               <% end %>
             </div>
           </div>-->
+          <% else %>
+          <div href="#" class="header_item1">
+            <div id="logo_ico">
+
+            </div>
+
+          <h2><p><font color="white"><%= link_to 'Forum', new_user_session_path, :class => 'header1'%></font></p></h2>
+          </div>
+          <div class="menu">
+            <div class="right menu">
+                <div class="item"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></div>
+              <div class="item"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></div>
+            </div>
+          </div>
+
+<% end %>
       </div>
     </div>
 
-<% end %>
+
+
+
+
+
   <p class="navbar-text pull-right" style="padding-bottom: 21px">
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
 <h4 class= "ui red header">
-  <p class="alert alert-danger"><%= alert %></p>
+  <p class="alert alert-danger"></p>
 </h4>
 <% end %>
 

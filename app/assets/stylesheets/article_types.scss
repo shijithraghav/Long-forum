@@ -1,28 +1,29 @@
-#sort_list ul li{
+#post_lists ul li{
   display: inline;
   padding-right: 40px;
 }
-#sort_list a{
+#post_lists a{
   color: #999999;
   font-size: 14px;
 }
-#sort_list ul {
+#post_lists ul {
 
   margin-left: -33px;
 }
 
-#sort_list{
+#post_lists{
   margin-top: 50px;
   margin-bottom: 40px;
 
 }
 
-#sort_list  a:hover{
+#post_lists  a:hover{
     border-bottom:3px solid #e67e22;
 
 }
 
-#sort_list .active a{
+#post_lists .active a{
+  padding-bottom: 10px;
   border-bottom:3px solid #e67e22;
 }
 
@@ -30,6 +31,6 @@
   background-color: white;
 }
 
-#spacing_index{
+#padding{
   margin-bottom: 20px;
 }

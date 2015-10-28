@@ -1,5 +1,22 @@
 
 
+.ui[class*="one column"].grid > .column:not(.row) {
+  width: 100% !important;
+}
+.header_item1{
+  margin-right: 1000px;
+
+}
+.ui.segment {
+  width: 701px;
+
+  margin: 0 auto;
+  height: auto;
+  padding-bottom: 74px;
+}
+#seg.ui.segment{
+  margin-top: 270px !important;
+}
 .ui.borderless.main.menu{
   background-color: #493172 !important;
   height: 50px;
@@ -80,9 +97,16 @@ div#user_click.ui.simple.dropdown.item{
 .show_edit .item:hover{
   background-color: white;
 }
-
+a.navbar-link{
+  font-size: 16px;
+}
+.all_tags{
+  float: left;
+  padding-top: 3px;
+}
 body{
   background-color: #f2f1ef;
+  overflow-x: auto;
 }
 
 .ui.relaxed.divided.items{
@@ -112,18 +136,10 @@ body{
   float: left;
 
 }
-#comment_ico{
-  width: 20px;
-  height: 20px;
-  background: url(/Sprite_20px.png) -20px -20px;
-  float: left;
+.ui.right.floated.segment{
+  padding-bottom: 0px !important;
 }
-#comment_ico:hover{
-  width: 20px;
-  height: 20px;
-  background: url(/Sprite_20px.png) -20px -40px;
-  float: left;
-}
+
 #fav_ico{
   width: 20px;
   height: 20px;
@@ -221,7 +237,10 @@ body{
   border-bottom:3px solid #e67e22;
 }
 
-
+a.header1{
+  margin-left: 17px;
+  color: #fff;
+}
 .userico{
   height: 30px;
   border-radius: 4px;
@@ -229,8 +248,13 @@ body{
 .userico:hover{
   background-color: #000066;
 }
+.header_item1 #logo_ico{
+  float: left;
+  margin-top: 10px;
+}
 #logo_ico{
   width: 20px;
+
   height: 20px;
   background: url(/Sprite_20px.png) 0px 0px;
 }
@@ -250,9 +274,7 @@ body{
 .padding{
   height: 20px;
 }
-.headings{
-  padding-bottom: 40px;
-}
+
 a.article_name{
   color: #333333;
   font-size: 16px;
@@ -265,12 +287,7 @@ a.article_name:hover{
   padding-top: 0px !important;
 }
 
-.a_content{
-  width:770px;
-  padding-left: 20px !important;
-  padding-bottom: 20px;
-  padding-top: 20px;
-}
+
 .ui.tiny.image{
   float: left;
   width: 114px;
@@ -418,19 +435,7 @@ div#comment_ico{
     font-size: 20px;
 
 }
-.index_fav{
-  width: 75px;
-  height: 59px;
-  float: left;
-  margin: 25px 10px 10px 28px;
 
-}
-.index_comment{
-  float: left;
-  width: 75px;
-  height: 60px;
-  margin: 25px 10px 10px 10px;
-}
 .show_edit{
   float: right;
   font-size: 16px;
@@ -452,6 +457,7 @@ a.edit_color{
 
 .ui[class*="right floated"].segment {
   float: left !important;
+    margin-left: 0em !important;
 }
 
 img{
@@ -708,11 +714,7 @@ float: left;
 .ui.dividing.header{
   margin-top: 100px;
 }
-.ui.segment{
-  width: 1000px;
-  margin-top: 50px;
-  margin: 0 auto;
-}
+
 
 .ui.right.floated.button{
   margin-left: 678px;

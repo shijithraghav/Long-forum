@@ -3,6 +3,7 @@
 @import "a.scss";
 @import "pop.scss";
 @import "user.scss";
+@import "index.scss";
 @import "new_post.scss";
 @import "willpage.scss";
 @import "header.scss";
@@ -38,4 +39,5 @@
  *= require_user
  *= require_willpage
  *= require_article_types
+ *= require_index
  */

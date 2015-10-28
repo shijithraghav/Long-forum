@@ -24,6 +24,7 @@ def visibility_check
   end
 end
 
+
 def self.popular
   reorder('votes desc').find_with_reputation(:votes, :all)
 end

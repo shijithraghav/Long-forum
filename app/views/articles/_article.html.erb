@@ -12,13 +12,14 @@
             <div id="tag_ico">
             </div>
           </div>
-         <%= raw article.tag_list[0,8].map { |t| link_to truncate(t, length: 10), tag_path(t) }.join(' ') %>
+          <div class="all_tags">
+         <%= raw article.tag_list[0,5].map { |t| link_to truncate(t, length: 10), tag_path(t) }.join(' ') %>
          <%#= link_to article.user.username, article.user %>
-
+       </div>
        </div>
      </div>
     </div>
-    <div class="ui tiny image">
+
       <div class="index_fav">
           <div class="fav">
             <%if current_user.fav_articles.include? article %>
@@ -33,21 +34,23 @@
             </div>
           </div>
         </div>
-    </div>
-    <div class="ui tiny image">
+
+
 
         <div class="index_comment">
             <div class="com">
+              <%= link_to article_path(article) + '#all_comments' do %>
             <div id="comment_ico">
-              <% link_to(article) %>
             </div>
+            <% end %>
             <div class="c_value">
                 <%= article.comments.count %>
             </div>
+
           </div>
         </div>
 
-    </div>
+
 </div>
 
 <div class = "padding"></div>

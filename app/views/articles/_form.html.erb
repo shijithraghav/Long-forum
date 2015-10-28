@@ -17,7 +17,7 @@
              Post Title
          </div>
          <%= form_for :article, url: articles_path do |f| %>
-           <%= f.hidden_field :parent_type, value:@parent_type %>
+           <%= f.hidden_field :parent_id, :value => 0 %>
                    <div class="ui form field">
                        <%= f.text_field :title,  :placeholder => 'Title' %>
                    </div>

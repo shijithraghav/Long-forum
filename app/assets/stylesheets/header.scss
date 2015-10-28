@@ -5,7 +5,14 @@
 }
 #dropdown_user .item{
   height: 45px;
+  display: block;
 
+}
+#dropdown_user.menu{
+  margin-top: 12px;
+}
+#dropdown_user.menu .item a{
+  display: block;
 }
 
 #dropdown_user .item:hover {

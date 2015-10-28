@@ -1,0 +1,60 @@
+.a_content{
+  width:74%;
+  padding-left: 20px !important;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.index_fav{
+min-height: 110px;
+width: 13%;
+border-left: 1px solid #f2f1ef;
+}
+.index_fav:hover{
+  background-color: #FDD7B5;
+}
+
+.index_fav:hover #fav_ico{
+
+  background: url(/Sprite_20px.png) 0px -40px;
+
+}
+.index_fav:hover #yfav_ico{
+
+  background: url(/Sprite_20px.png) 0px -60px;
+
+}
+#comment_ico{
+  width: 20px;
+  height: 20px;
+  background: url(/Sprite_20px.png) -20px -20px;
+  float: left;
+}
+
+.index_comment:hover #comment_ico{
+background: url(/Sprite_20px.png) -20px -40px;
+}
+.index_comment{
+  min-height: 110px;
+  width: 13%;
+  border-left: 1px solid #f2f1ef;
+}
+.index_comment:hover{
+  background-color: #FDD7B5;
+}
+
+
+
+
+.fav{
+  height: 20px;
+  width: auto;
+  float: left;
+    margin: 44px 15px 14px 40px;
+
+}
+.index_comment .com{
+  height: 20px;
+  width: auto;
+  float: left;
+  margin: 44px 8px 9px 40px;
+}

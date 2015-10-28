@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
+
     if params[:tag]
       @tags = true
       @articles = Article.joins(:tags).where('tags.name like ?', "%#{params[:tag]}%").paginate(:per_page => 5, :page => params[:page])
@@ -40,17 +41,32 @@ class ArticlesController < ApplicationController
     elsif params[:type]== 'favorite'
         @articles = current_user.fav_articles.paginate(:per_page => 5, :page => params[:page])
     else
-        @articles = Article.where(:visibility => 'public').paginate(:per_page => 4, :page => params[:page])
+        @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
     end
    end
 
  def create
   @article = Article.new(article_params)
-  @article.user_id = current_user.id
-  if @article.save
-    redirect_to @article
+    if params[:parent_id]
+      @particle= Article.find(params[:parent_id])
+    if @particle.user_id == current_user.id || @particle.visibility == "public" || Invite.where(:user_id => current_user.id , :article_id => @particle.id ,:status => 'true').present?
+
+      @article.user_id = current_user.id
+      if @article.save
+        redirect_to @article
+      else
+        render 'new'
+      end
+    else
+        render :file => 'public/422.html'
+    end
   else
-    render 'new'
+    @article.user_id = current_user.id
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 end
 
