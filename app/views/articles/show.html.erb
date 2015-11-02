@@ -192,7 +192,7 @@
 
             <div id="submit_tags">
 
-            <%= submit_tag "Invite", class:"ui button" %>
+            <%= submit_tag "Invite", :onclick => "w2popup.close()", class:"ui button" %>
 
 
             <button class="ui blue basic button" onclick="w2popup.close()" >Cancel</button>
@@ -242,14 +242,17 @@ $('#pop_body').w2popup();
 $('.some').bind('railsAutocomplete.select', function(event, data){
     /* Do something here */
        $('input#user_id').val(data.item.id);
-      $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][user_id]" , value='+data.item.id+' >');
-      $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][article_id]", value= <%= @article.id %> >');
-      $('form[name=ds]').append('<input type="hidden" name="user_ids['+data.item.id+'][status]", value= false >');
-      $('form[name=ds]').append('<div id ="item">' + data.item.value + '</div>');
+      $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][user_id]" , value='+data.item.id+' >');
+      $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][article_id]", value= <%= @article.id %> >');
+      $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][status]", value= false >');
+      $('form[name=ds]').append('<div id ="shared_items">' + data.item.value + '</div>');
       $('form[name=ds]').append('<div id="shared_with1"></div>');
       $('input#email').val('');
     });
 // overlay based on the same HTML
+//if ($('#selected_val > div:contains('+this.value+')').length == 0) {
+            //  $('#selected_val').append('<div class ="shared_item">' + this.value + '</div>');
+
 
 });
 $('#delete_p').click(function(){

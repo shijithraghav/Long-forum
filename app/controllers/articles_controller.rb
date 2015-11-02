@@ -105,20 +105,15 @@ end
 
 
 def invite
-  if params[:user_ids]
-    @invite=Invite.new(invite_params)
-    if Invite.where(:user_id => @invite.user_id, :article_id => @invite.article_id).blank? && @invite.article.user_id == current_user.id && @invite.article.visibility == "private"
-      i=params[:user_ids]
-      par = i.values
-      Invite.create(par)
-    end
+
+  @invite= Article.find(params[:article_id])
+    if  @invite.user_id == current_user.id && @invite.visibility == "private"
+      @invite.update_attributes(invite_params)
+
   end
 end
 
-def invite_popup
 
-@article=Article.first
-end
 
 def invite_accepted
 @invite = Invite.find(params[:invite_id])
@@ -168,7 +163,11 @@ private
     params.require(:article).permit(:title, :text, :tag_list, :parent_id, :visibility)
   end
 
-  def invite_params
-    params.permit(:user_id, :article_id, :status)
-end
+def invite_params
+    params.require(:invites).permit(invites_attributes:[:user_id, :article_id, :status])
+  end
+    def article_id
+      params.require(:invite).permit(:article_id)
+    end
+
 end

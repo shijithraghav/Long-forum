@@ -9,7 +9,10 @@
 
 }
 .ui.simple.dropdown .menu {
-  left: -80px !important;
+  left: -60px !important;
+}
+.show_edit  .ui.simple.dropdown .menu {
+  left: -82px !important;
 }
 #dropdown_user.menu{
   margin-top: 12px;

@@ -15,7 +15,7 @@ validates :title, presence: true,
 has_reputation :votes, source: :user, aggregated_by: :sum
 has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "150x150" }
 default_scope  { order(:created_at => :desc) }
-
+accepts_nested_attributes_for :invites ,allow_destroy:true
 
 
 def visibility_check
