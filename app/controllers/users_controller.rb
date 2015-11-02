@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
     autocomplete :user, :email
+
     def get_autocomplete_items(parameters)
-   items = super(parameters)
-   items = items.where("id NOT IN (?)",current_user)
+      article= params[:id_element]
+      items = super(parameters)
+      items = items.joins("left outer join invites on invites.user_id=users.id and invites.article_id='#{article}'").where("invites.article_id is NULL and users.id NOT IN (?)",current_user)
+
   end
 
   def show

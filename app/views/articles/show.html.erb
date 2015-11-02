@@ -182,7 +182,7 @@
             <%= form_tag url_for(invite_articles_path),name:'ds', :remote => true do %>
             <div id= "input_id">
             <div class="ui input">
-              <%= autocomplete_field_tag :email, params[:email], autocomplete_user_email_users_path, :class=>"some" , :update_elements => {}, :placeholder =>"Type user's name" %>
+              <%= autocomplete_field_tag :email, params[:email], autocomplete_user_email_users_path(:id_element => @article.id) , :class=>"some" , :update_elements => {}, :placeholder =>"Type user's name" %>
            </div>
          </div>
             <%= hidden_field_tag :user_id %>
@@ -238,15 +238,20 @@ $(document).ready(function(){
                 });
   $('#cform').insertBefore('.a');
 $('#pop').click(function(){
+
 $('#pop_body').w2popup();
+$("#shared_with1").html("");
 $('.some').bind('railsAutocomplete.select', function(event, data){
     /* Do something here */
+
        $('input#user_id').val(data.item.id);
       $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][user_id]" , value='+data.item.id+' >');
       $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][article_id]", value= <%= @article.id %> >');
       $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][status]", value= false >');
-      $('form[name=ds]').append('<div id ="shared_items">' + data.item.value + '</div>');
-      $('form[name=ds]').append('<div id="shared_with1"></div>');
+      if ($('#shared_with1 > div:contains('+this.value+')').length == 0 && data.item.id) {
+      $('form[name=ds]').append('<div id ="shared_with1">' + this.value + '</div>');
+    }
+      //$('form[name=ds]').append('<div id="shared_with1"></div>');
       $('input#email').val('');
     });
 // overlay based on the same HTML
