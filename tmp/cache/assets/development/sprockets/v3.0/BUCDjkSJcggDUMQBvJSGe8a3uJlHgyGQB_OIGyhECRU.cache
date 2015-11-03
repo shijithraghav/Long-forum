@@ -1,0 +1,35 @@
+I";(function() {
+  $(document).on('ready page:load', function() {
+    var i, len, more_posts_url, ref, results, tag;
+    if ($('#infinite-scrolling').size() > 0) {
+      console.log('hi');
+      $(window).on('scroll', function() {
+        return console.log('ok');
+      });
+      more_posts_url = $('.pagination .next_page').attr('href');
+      console.log(more_posts_url);
+      if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
+        $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+        $.getScript(more_posts_url);
+      }
+    }
+    return;
+    return;
+    $('#comment-tags').tagit({
+      fieldName: 'comment[tag_list]',
+      singleField: true,
+      availableTags: gon.available_tags
+    });
+    if (gon.article_tags != null) {
+      ref = gon.article_tags;
+      results = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        tag = ref[i];
+        results.push($('#comment-tags').tagit('createTag', tag));
+      }
+      return results;
+    }
+  });
+
+}).call(this);
+:ET

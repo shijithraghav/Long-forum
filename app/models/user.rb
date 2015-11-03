@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_reputation :votes, source: {reputation: :votes, of: :haikus}, aggregated_by: :sum
 
-  
+
 
   def voted_for?(comment)
       evaluations.where(target_type: comment.class, target_id: comment.id).present?

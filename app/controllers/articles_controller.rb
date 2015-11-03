@@ -27,21 +27,21 @@ class ArticlesController < ApplicationController
 
     if params[:tag]
       @tags = true
-      @articles = Article.joins(:tags).where('tags.name like ?', "%#{params[:tag]}%").paginate(:per_page => 5, :page => params[:page])
+      @articles = Article.joins(:tags).where('tags.name like ?', "%#{params[:tag]}%").paginate(:page => params[:page], :per_page => 9)
     elsif params[:type]== 'private'
-      @articles = Article.joins(:invites).where(:invites => { :user_id => current_user.id , :status => 'true' }).paginate(:per_page => 5, :page => params[:page])
+      @articles = Article.joins(:invites).where(:invites => { :user_id => current_user.id , :status => 'true' }).paginate(:page => params[:page], :per_page => 9)
 
     elsif params[:type]== 'public'
-        @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
+        @articles = Article.where(:visibility => 'public').paginate(:page => params[:page], :per_page => 9)
 
     elsif params[:type]== 'my'
-        @articles = Article.where(:user_id => current_user.id).paginate(:per_page => 5, :page => params[:page])
+        @articles = Article.where(:user_id => current_user.id).paginate(:page => params[:page], :per_page => 9)
     elsif params[:type]== 'top'
-        @articles = Article.page(params[:page]).popular.paginate(:per_page => 5, :page => params[:page])
+        @articles = Article.page(params[:page]).popular.paginate(:page => params[:page], :per_page => 9)
     elsif params[:type]== 'favorite'
-        @articles = current_user.fav_articles.paginate(:per_page => 5, :page => params[:page])
+        @articles = current_user.fav_articles.paginate(:page => params[:page], :per_page => 9)
     else
-        @articles = Article.where(:visibility => 'public').paginate(:per_page => 5, :page => params[:page])
+        @articles = Article.where(:visibility => 'public').paginate(:page => params[:page], :per_page => 9)
     end
    end
 
@@ -90,7 +90,7 @@ if params[:id]
     current_user.fav_articles.delete(@article.id)
   end
 else
-    @articles= current_user.fav_articles.paginate(:per_page => 5, :page => params[:page])
+    @articles= current_user.fav_articles.paginate(:page => params[:page], :per_page => 9)
   end
 end
 
@@ -109,7 +109,8 @@ def invite
   @invite= Article.find(params[:article_id])
     if  @invite.user_id == current_user.id && @invite.visibility == "private"
       @invite.update_attributes(invite_params)
-
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @invite
   end
 end
 

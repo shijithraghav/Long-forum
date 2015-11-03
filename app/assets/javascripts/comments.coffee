@@ -5,6 +5,9 @@
 
 
 $(document).on 'ready page:load', ->
+
+  
+
   $('#comment-tags').tagit
     fieldName:     'comment[tag_list]'
     singleField:   true

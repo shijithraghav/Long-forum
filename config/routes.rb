@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+    get 'articles/index'
 
  get 'tags/:tag', to: 'articles#index', as: :tag
 
@@ -13,18 +14,19 @@ Rails.application.routes.draw do
 
   root to: 'articles#index'
 
- # post 'articles/:id/favorite' => 'articles#favorite'
- # get 'articles/:id/favorite' => 'articles#favorite'
- # get 'articles/favorite' => 'articles#favorite'
+
   resources :articles do
  member do
    post :favorite
    get :subpostnew
+   post :invite_accepted
+   delete :invite_reject
  end
  collection do
    get :favorite
    get :invite_popup
-
+   post :invite
+   get :invite
 
  end
     resources :comments
@@ -33,23 +35,6 @@ Rails.application.routes.draw do
     get :autocomplete_tag_name, :on => :collection
 
  end
-
-
-
- resources :articles do
- collection do
-   post :invite
-   get :invite
-
-
-end
-
-  member do
-    post :invite_accepted
-    delete :invite_reject
-  end
-
-  end
 
 
   resources :comments do

@@ -1,11 +1,23 @@
 <%if @tags %>
+console.log('tags');
+
  $('#search-posts').html('<%= j render @articles %>')
+ <% if @articles.next_page %>
+     $('.pagination').replaceWith('<%= j will_paginate @articles %>');
+     console.log('second');
+ <% else %>
+     $(window).off('scroll');
+     $('.pagination').remove();
+   <% end %>
+
 <% else %>
+
 $('<%= j render @articles %>').insertBefore( "#infinite-scrolling" );
-<% if @articles.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @articles %>');
-<% else %>
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% end %>
+  console.log('first');
+  <% if @articles.next_page %>
+      $('.pagination').replaceWith('<%= j will_paginate @articles %>');
+  <% else %>
+      $(window).off('scroll');
+      $('.pagination').remove();
+    <% end %>
 <%end %>
