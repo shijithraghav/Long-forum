@@ -15,23 +15,23 @@ border-left: 1px solid #f2f1ef;
 
 .index_fav:hover #fav_ico{
 
-  background: url(/Sprite_20px.png) 0px -40px;
+  background: url(/assets/Sprite_20px.png) 0px -40px;
 
 }
 .index_fav:hover #yfav_ico{
 
-  background: url(/Sprite_20px.png) 0px -60px;
+  background: url(/assets/Sprite_20px.png) 0px -60px;
 
 }
 #comment_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -20px -20px;
+  background: url(/assets/Sprite_20px.png) -20px -20px;
   float: left;
 }
 
 .index_comment:hover #comment_ico{
-background: url(/Sprite_20px.png) -20px -40px;
+background: url(/assets/Sprite_20px.png) -20px -40px;
 }
 .index_comment{
   min-height: 110px;

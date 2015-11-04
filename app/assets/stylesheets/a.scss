@@ -140,13 +140,13 @@ body{
 #user_ico{
   width: 40px;
   height: 20px;
-  background: url(/Sprite_20px.png) -20px 0px;
+  background: url(/assets/Sprite_20px.png) -20px 0px;
   float: left;
 }
 #edit_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -40px -80px;
+  background: url(/assets/Sprite_20px.png) -40px -80px;
   float: left;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -155,7 +155,7 @@ body{
 #edit_ico:hover{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -40px -100px;
+  background: url(/assets/Sprite_20px.png) -40px -100px;
   float: left;
 
 }
@@ -166,55 +166,55 @@ body{
 #fav_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) 0px -20px;
+  background: url(/assets/Sprite_20px.png) 0px -20px;
   float: left;
 }
 #yfav_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) 0px -60px;
+  background: url(/assets/Sprite_20px.png) 0px -60px;
   float: left;
 }
 #tag_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -40px -16px;
+  background: url(/assets/Sprite_20px.png) -40px -16px;
   float: left;
 }
 #up_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -20px -80px;
+  background: url(/assets/Sprite_20px.png) -20px -80px;
   float: left;
 }
 #down_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) 0px -80px;
+  background: url(/assets/Sprite_20px.png) 0px -80px;
   float: left;
 }
 #up_ico:hover{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -20px -100px;
+  background: url(/assets/Sprite_20px.png) -20px -100px;
   float: left;
 }
 #down_ico:hover{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) 0px -100px;
+  background: url(/assets/Sprite_20px.png) 0px -100px;
   float: left;
 }
 #aup_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) -20px -120px;
+  background: url(/assets/Sprite_20px.png) -20px -120px;
   float: left;
 }
 #adown_ico{
   width: 20px;
   height: 20px;
-  background: url(/Sprite_20px.png) 0px -120px;
+  background: url(/assets/Sprite_20px.png) 0px -120px;
   float: left;
 }
 
@@ -279,7 +279,7 @@ a.header1{
   width: 20px;
 
   height: 20px;
-  background: url(/Sprite_20px.png) 0px 0px;
+  background: url(/assets/Sprite_20px.png) 0px 0px;
 }
 
 .ui.menu .ui.dropdown.item .menu .item:not(.filtered) {

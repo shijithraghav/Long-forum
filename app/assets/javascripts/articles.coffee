@@ -6,6 +6,7 @@ $(document).on 'ready page:load', ->
    fieldName:     'article[tag_list]'
    singleField:   true
    availableTags: gon.available_tags
+   console.log ($('#article-tags'))
 
  if gon.article_tags?
    for tag in gon.article_tags

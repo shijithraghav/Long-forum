@@ -1,5 +1,5 @@
 
-<div class="ui container">
+<div class="ui container" data-no-turbolinks="true">
     <div class="segments">
 <div class="ui relaxed divided items" id ="search-posts">
 
@@ -13,7 +13,7 @@
              <%= link_to 'Home >', root_url%>
            </div>
            <div class="route_title">
-             New Post
+             Edit Post
            </div>
          </div>
 
@@ -29,7 +29,7 @@
                          <div class="post_title" id="head_pad">
                              Content
                          </div>
-                         <div class="field">
+                         <div class="field" data-no-turbolink="true">
                              <%= f.cktext_area :text, :class => 'someclass', :ckeditor => {:language => 'english',:uiColor => '#FFFFFF', :toolbar => 'mini' } %>
                          </div>
                          <div class="post_title">

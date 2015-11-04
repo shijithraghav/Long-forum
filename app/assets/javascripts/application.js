@@ -27,8 +27,6 @@
 //= require autocomplete-rails
 //= require ckeditor/init
 //= require semantic-ui
-//= require semantic-ui/modal
-//= require semantic-ui/dropdown
 //= require turbolinks
 
 $( document ).ready(function(){

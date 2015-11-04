@@ -1,0 +1,40 @@
+I"Û(function() {
+  $(document).on('ready page:load', function() {
+    var i, len, ref, results, tag;
+    $('#article-tags').tagit({
+      fieldName: 'article[tag_list]',
+      singleField: true
+    }, console.log('hi'), {
+      availableTags: gon.available_tags
+    });
+    if (gon.article_tags != null) {
+      ref = gon.article_tags;
+      results = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        tag = ref[i];
+        results.push($('#article-tags').tagit('createTag', tag));
+      }
+      return results;
+    }
+  });
+
+  (function() {
+    return $('.tags_with_autocomplete').autocomplete({
+      minLength: 2,
+      source: function(request, response) {
+        return $.ajax({
+          url: $('.tags_with_autocomplete').data('autocompleteurl'),
+          dataType: "json",
+          data: {
+            name: request.term
+          },
+          success: function(data) {
+            return response(data);
+          }
+        });
+      }
+    });
+  });
+
+}).call(this);
+:ET

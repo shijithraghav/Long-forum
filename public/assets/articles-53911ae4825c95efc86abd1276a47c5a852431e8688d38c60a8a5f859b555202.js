@@ -1,0 +1,1 @@
+(function(){$(document).on("ready page:load",function(){var e,t,n,i,o;if($("#article-tags").tagit({fieldName:"article[tag_list]",singleField:!0,availableTags:gon.available_tags}),null!=gon.article_tags){for(n=gon.article_tags,i=[],e=0,t=n.length;t>e;e++)o=n[e],i.push($("#article-tags").tagit("createTag",o));return i}})}).call(this);
