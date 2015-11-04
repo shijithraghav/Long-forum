@@ -13,6 +13,8 @@ class ArticlesController < ApplicationController
  end
 
  def show
+
+   @articles = Article.where(:visibility => 'public').paginate(:page => params[:page], :per_page => 9)
    @users = User.where("id NOT IN (?)",current_user)
      @article = Article.find(params[:id])
      if @article.user_id == current_user.id || @article.visibility == "public" || Invite.where(:user_id => current_user.id , :article_id => @article.id ,:status => 'true').present?
@@ -108,9 +110,12 @@ def invite
 
   @invite= Article.find(params[:article_id])
     if  @invite.user_id == current_user.id && @invite.visibility == "private"
-      @invite.update_attributes(invite_params)
+      if @invite.update_attributes(invite_params)
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @invite
+    else
+        flash[:failure] = "hi!"
+      end
+      redirect_to :back
   end
 end
 
@@ -166,9 +171,10 @@ private
 
 def invite_params
     params.require(:invites).permit(invites_attributes:[:user_id, :article_id, :status])
+
   end
-    def article_id
+  def article_id
       params.require(:invite).permit(:article_id)
-    end
+  end
 
 end

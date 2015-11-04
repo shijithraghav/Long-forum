@@ -47,7 +47,7 @@
                              <%= f.radio_button 'visibility', 'private' %>
                              <%= f.label :private_name, 'Private', :id => "private_name"  %>
                          </div>
-                       <%= f.submit "Submit Post" ,class:"ui button"  %>
+                       <button class="ui button" type="submit" class="navbar-link">Edit</button>
                <% end %>
                <%= button_to "Cancel", root_url , method:"get" , class: "ui violet basic button" ,id:"cancel_button"  %>
              </div>

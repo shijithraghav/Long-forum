@@ -25,10 +25,11 @@
        <%= truncate(@article.title, length: 50) %>
      </div>
    </div>
-   <% flash.each do |key, value| %>
-           <div class="alert alert-<%= key %>"><%= value %></div>
-         <% end %>
+
   <div class="ui left floated segment">
+    <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
     <div class="segment1_content">
     <div class="segment_content">
       <div class = "ui header">
@@ -181,7 +182,7 @@
         <div id ="invite_search">
           <div style="">
           </div>
-            <%= form_tag url_for(invite_articles_path),name:'ds', :remote => true do %>
+            <%= form_tag url_for(invite_articles_path),name:'ds' do %>
             <div id= "input_id">
             <div class="ui input">
               <%= autocomplete_field_tag :email, params[:email], autocomplete_user_email_users_path(:id_element => @article.id) , :class=>"some" , :update_elements => {}, :placeholder =>"Type user's name" %>
@@ -194,15 +195,17 @@
 
             <div id="submit_tags">
 
-            <%= submit_tag "Invite", :onclick => "w2popup.close()", class:"ui button" %>
+
+            <button class="ui button" id="register" type="submit" class="navbar-link" onclick="w2popup.close()">Invite</button>
 
 
-            <button class="ui blue basic button" onclick="w2popup.close()" >Cancel</button>
           </div>
 
 
             <% end %>
-
+            <div id="cancel_tag">
+              <button class="ui blue basic button" onclick="w2popup.close()" >Cancel</button>
+            </div>
         </div>
     </div>
     </div>
@@ -240,12 +243,10 @@ $(document).ready(function(){
                 });
   $('#cform').insertBefore('.a');
 $('#pop').click(function(){
-
 $('#pop_body').w2popup();
 $("#shared_with1").html("");
 $('.some').bind('railsAutocomplete.select', function(event, data){
     /* Do something here */
-
        $('input#user_id').val(data.item.id);
       $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][user_id]" , value='+data.item.id+' >');
       $('form[name=ds]').append('<input type="hidden" name="invites[invites_attributes]['+data.item.id+'][article_id]", value= <%= @article.id %> >');
@@ -255,17 +256,16 @@ $('.some').bind('railsAutocomplete.select', function(event, data){
     }
       //$('form[name=ds]').append('<div id="shared_with1"></div>');
       $('input#email').val('');
+
+
     });
 // overlay based on the same HTML
 //if ($('#selected_val > div:contains('+this.value+')').length == 0) {
             //  $('#selected_val').append('<div class ="shared_item">' + this.value + '</div>');
-
-
 });
 $('#delete_p').click(function(){
 $('#delete_post').w2popup();
 });
-
 })
 /*$(document).ready(function(){
   $('#cinvite').hide();

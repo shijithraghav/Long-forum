@@ -1,7 +1,9 @@
 <%if @tags %>
 console.log('tags');
   <% unless @articles.count == 0 %>
+  console.log('count=0');
     <% unless @articles.previous_page %>
+    console.log('count=1');
         $('#search-posts').html('<%= j render 'articles_all' %>')
     <% else %>
       $('<%= j render @articles %>').insertBefore( "#infinite-scrolling" );
@@ -19,7 +21,7 @@ console.log('tags');
 <% else %>
 
   $('<%= j render @articles %>').insertBefore( "#infinite-scrolling" );
-    console.log('first');
+    console.log('no-tags');
     <% if @articles.next_page %>
       $('.pagination').replaceWith('<%= j will_paginate @articles %>');
     <% else %>

@@ -1,0 +1,230 @@
+I, [2015-11-04T13:10:45.527788 #5489]  INFO -- : Started GET "/articles/116" for 127.0.0.1 at 2015-11-04 13:10:45 +0530
+I, [2015-11-04T13:10:45.550131 #5489]  INFO -- : Processing by ArticlesController#show as HTML
+I, [2015-11-04T13:10:45.550217 #5489]  INFO -- :   Parameters: {"id"=>"116"}
+D, [2015-11-04T13:10:45.595150 #5489] DEBUG -- :   [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+D, [2015-11-04T13:10:45.616545 #5489] DEBUG -- :   [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ?  ORDER BY "articles"."created_at" DESC LIMIT 1  [["id", 116]]
+D, [2015-11-04T13:10:45.815854 #5489] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-04T13:10:45.836010 #5489] DEBUG -- :   [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 4], ["id", 116]]
+D, [2015-11-04T13:10:45.843106 #5489] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?[0m  [["article_id", 116]]
+I, [2015-11-04T13:10:45.843334 #5489]  INFO -- :   Rendered articles/_favorite.html.erb (26.6ms)
+D, [2015-11-04T13:10:45.849515 #5489] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 116]]
+D, [2015-11-04T13:10:45.853614 #5489] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 116]]
+D, [2015-11-04T13:10:45.854626 #5489] DEBUG -- :   [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."article_id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 5 OFFSET 0  [["article_id", 116]]
+I, [2015-11-04T13:10:45.854815 #5489]  INFO -- :   Rendered comments/_comment.html.erb (4.6ms)
+I, [2015-11-04T13:10:45.871134 #5489]  INFO -- :   Rendered comments/_form.html.erb (15.8ms)
+D, [2015-11-04T13:10:45.902235 #5489] DEBUG -- :   [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 116], ["taggable_type", "Article"]]
+D, [2015-11-04T13:10:45.908312 #5489] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "articles" WHERE "articles"."parent_id" = ?  [["parent_id", 116]]
+D, [2015-11-04T13:10:45.913833 #5489] DEBUG -- :   [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."parent_id" = ?  ORDER BY "articles"."created_at" DESC[0m  [["parent_id", 116]]
+I, [2015-11-04T13:10:45.914276 #5489]  INFO -- :   Rendered articles/show.html.erb within layouts/application (253.0ms)
+I, [2015-11-04T13:10:45.920611 #5489]  INFO -- : Completed 200 OK in 370ms (Views: 260.8ms | ActiveRecord: 21.7ms)
+I, [2015-11-04T13:10:45.970011 #5489]  INFO -- : Started GET "/assets/application-916e90f0763a63f4c490102bd87ee8c425fec85b1e1ea0c74ae848a41b2e1b0b.js" for 127.0.0.1 at 2015-11-04 13:10:45 +0530
+F, [2015-11-04T13:10:45.970969 #5489] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-916e90f0763a63f4c490102bd87ee8c425fec85b1e1ea0c74ae848a41b2e1b0b.js"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.2.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+I, [2015-11-04T13:10:45.973378 #5489]  INFO -- : Started GET "/assets/application-4ee800cb9ba45c12fea2c19c372ed951a2934f3c0d0d42704d8ad3998149823a.css" for 127.0.0.1 at 2015-11-04 13:10:45 +0530
+F, [2015-11-04T13:10:45.974875 #5489] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-4ee800cb9ba45c12fea2c19c372ed951a2934f3c0d0d42704d8ad3998149823a.css"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.2.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+I, [2015-11-04T13:10:46.877383 #5489]  INFO -- : Started GET "/favicon.ico" for 127.0.0.1 at 2015-11-04 13:10:46 +0530
+F, [2015-11-04T13:10:46.878806 #5489] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.2.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+I, [2015-11-04T14:10:23.962335 #3611]  INFO -- : Started GET "/articles/116" for 127.0.0.1 at 2015-11-04 14:10:23 +0530
+I, [2015-11-04T14:10:24.006163 #3611]  INFO -- : Processing by ArticlesController#show as HTML
+I, [2015-11-04T14:10:24.006246 #3611]  INFO -- :   Parameters: {"id"=>"116"}
+D, [2015-11-04T14:10:24.037785 #3611] DEBUG -- :   [1m[36mUser Load (5.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+D, [2015-11-04T14:10:24.053408 #3611] DEBUG -- :   [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ?  ORDER BY "articles"."created_at" DESC LIMIT 1  [["id", 116]]
+D, [2015-11-04T14:10:24.097862 #3611] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-04T14:10:24.119208 #3611] DEBUG -- :   [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 4], ["id", 116]]
+D, [2015-11-04T14:10:24.125030 #3611] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?[0m  [["article_id", 116]]
+I, [2015-11-04T14:10:24.125216 #3611]  INFO -- :   Rendered articles/_favorite.html.erb (26.4ms)
+D, [2015-11-04T14:10:24.129063 #3611] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 116]]
+D, [2015-11-04T14:10:24.133206 #3611] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 116]]
+D, [2015-11-04T14:10:24.134249 #3611] DEBUG -- :   [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."article_id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 5 OFFSET 0  [["article_id", 116]]
+I, [2015-11-04T14:10:24.134439 #3611]  INFO -- :   Rendered comments/_comment.html.erb (4.6ms)
+I, [2015-11-04T14:10:24.153216 #3611]  INFO -- :   Rendered comments/_form.html.erb (18.2ms)
+D, [2015-11-04T14:10:24.169488 #3611] DEBUG -- :   [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 116], ["taggable_type", "Article"]]
+D, [2015-11-04T14:10:24.178968 #3611] DEBUG -- :   [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "articles" WHERE "articles"."parent_id" = ?  [["parent_id", 116]]
+D, [2015-11-04T14:10:24.179913 #3611] DEBUG -- :   [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."parent_id" = ?  ORDER BY "articles"."created_at" DESC[0m  [["parent_id", 116]]
+I, [2015-11-04T14:10:24.180272 #3611]  INFO -- :   Rendered articles/show.html.erb within layouts/application (108.9ms)
+I, [2015-11-04T14:10:24.186280 #3611]  INFO -- : Completed 200 OK in 180ms (Views: 114.9ms | ActiveRecord: 9.5ms)
+I, [2015-11-04T14:10:24.222397 #3611]  INFO -- : Started GET "/assets/application-4ee800cb9ba45c12fea2c19c372ed951a2934f3c0d0d42704d8ad3998149823a.css" for 127.0.0.1 at 2015-11-04 14:10:24 +0530
+F, [2015-11-04T14:11:30.949658 #3611] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-4ee800cb9ba45c12fea2c19c372ed951a2934f3c0d0d42704d8ad3998149823a.css"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.2.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+I, [2015-11-04T14:11:30.950631 #3611]  INFO -- : Started GET "/assets/application-916e90f0763a63f4c490102bd87ee8c425fec85b1e1ea0c74ae848a41b2e1b0b.js" for 127.0.0.1 at 2015-11-04 14:11:30 +0530
+I, [2015-11-04T14:13:25.611439 #3870]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-11-04 14:13:25 +0530
+I, [2015-11-04T14:13:25.638004 #3870]  INFO -- : Processing by ArticlesController#index as HTML
+D, [2015-11-04T14:13:25.674060 #3870] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+D, [2015-11-04T14:13:25.697538 #3870] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "articles" WHERE "articles"."visibility" = ?  [["visibility", "public"]]
+D, [2015-11-04T14:13:25.699544 #3870] DEBUG -- :   [1m[36mArticle Load (0.9ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."visibility" = ?  ORDER BY "articles"."created_at" DESC LIMIT 9 OFFSET 0[0m  [["visibility", "public"]]
+D, [2015-11-04T14:13:25.707827 #3870] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "articles" WHERE "articles"."visibility" = ?  [["visibility", "public"]]
+D, [2015-11-04T14:13:25.734696 #3870] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+D, [2015-11-04T14:13:25.770567 #3870] DEBUG -- :   [1m[35mActsAsTaggableOn::Tag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 127], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.787806 #3870] DEBUG -- :   [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 4], ["id", 127]]
+D, [2015-11-04T14:13:25.794024 #3870] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?  [["article_id", 127]]
+D, [2015-11-04T14:13:25.798905 #3870] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 127]]
+D, [2015-11-04T14:13:25.800043 #3870] DEBUG -- :   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-11-04T14:13:25.803049 #3870] DEBUG -- :   [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 124], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.806056 #3870] DEBUG -- :   [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 4], ["id", 124]]
+D, [2015-11-04T14:13:25.811692 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?[0m  [["article_id", 124]]
+D, [2015-11-04T14:13:25.813947 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 124]]
+D, [2015-11-04T14:13:25.814937 #3870] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-04T14:13:25.816955 #3870] DEBUG -- :   [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 123], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.819340 #3870] DEBUG -- :   [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 4], ["id", 123]]
+D, [2015-11-04T14:13:25.821642 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?  [["article_id", 123]]
+D, [2015-11-04T14:13:25.823886 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 123]]
+D, [2015-11-04T14:13:25.824835 #3870] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-11-04T14:13:25.826941 #3870] DEBUG -- :   [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 122], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.829019 #3870] DEBUG -- :   [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 4], ["id", 122]]
+D, [2015-11-04T14:13:25.830073 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?[0m  [["article_id", 122]]
+D, [2015-11-04T14:13:25.832201 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 122]]
+D, [2015-11-04T14:13:25.834170 #3870] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-04T14:13:25.835341 #3870] DEBUG -- :   [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 121], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.836878 #3870] DEBUG -- :   [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 4], ["id", 121]]
+D, [2015-11-04T14:13:25.838664 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?  [["article_id", 121]]
+D, [2015-11-04T14:13:25.839989 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 121]]
+D, [2015-11-04T14:13:25.844979 #3870] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-11-04T14:13:25.846698 #3870] DEBUG -- :   [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 120], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.847884 #3870] DEBUG -- :   [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 4], ["id", 120]]
+D, [2015-11-04T14:13:25.849249 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?[0m  [["article_id", 120]]
+D, [2015-11-04T14:13:25.859681 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 120]]
+D, [2015-11-04T14:13:25.860620 #3870] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-04T14:13:25.861796 #3870] DEBUG -- :   [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 119], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.862884 #3870] DEBUG -- :   [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 4], ["id", 119]]
+D, [2015-11-04T14:13:25.863856 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?  [["article_id", 119]]
+D, [2015-11-04T14:13:25.864843 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 119]]
+D, [2015-11-04T14:13:25.865679 #3870] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-11-04T14:13:25.867059 #3870] DEBUG -- :   [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 118], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.868132 #3870] DEBUG -- :   [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 4], ["id", 118]]
+D, [2015-11-04T14:13:25.869119 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?[0m  [["article_id", 118]]
+D, [2015-11-04T14:13:25.870303 #3870] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 118]]
+D, [2015-11-04T14:13:25.871564 #3870] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-04T14:13:25.872774 #3870] DEBUG -- :   [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 117], ["taggable_type", "Article"]]
+D, [2015-11-04T14:13:25.875396 #3870] DEBUG -- :   [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "articles_users" ON "articles"."id" = "articles_users"."article_id" WHERE "articles_users"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 4], ["id", 117]]
+D, [2015-11-04T14:13:25.877755 #3870] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "articles_users" ON "users"."id" = "articles_users"."user_id" WHERE "articles_users"."article_id" = ?  [["article_id", 117]]
+D, [2015-11-04T14:13:25.879119 #3870] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 117]]
+I, [2015-11-04T14:13:25.879291 #3870]  INFO -- :   Rendered articles/_article.html.erb (170.4ms)
+I, [2015-11-04T14:13:25.881401 #3870]  INFO -- :   Rendered articles/_articles_all.html.erb (187.6ms)
+I, [2015-11-04T14:13:25.881495 #3870]  INFO -- :   Rendered articles/index.html.erb within layouts/application (191.2ms)
+I, [2015-11-04T14:13:25.885523 #3870]  INFO -- : Completed 200 OK in 247ms (Views: 191.8ms | ActiveRecord: 10.4ms)
+I, [2015-11-04T14:13:25.937500 #3870]  INFO -- : Started GET "/assets/application-4ee800cb9ba45c12fea2c19c372ed951a2934f3c0d0d42704d8ad3998149823a.css" for 127.0.0.1 at 2015-11-04 14:13:25 +0530
+F, [2015-11-04T14:13:26.169336 #3870] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-4ee800cb9ba45c12fea2c19c372ed951a2934f3c0d0d42704d8ad3998149823a.css"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.2.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/user/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+I, [2015-11-04T14:13:26.170126 #3870]  INFO -- : Started GET "/assets/application-916e90f0763a63f4c490102bd87ee8c425fec85b1e1ea0c74ae848a41b2e1b0b.js" for 127.0.0.1 at 2015-11-04 14:13:26 +0530
