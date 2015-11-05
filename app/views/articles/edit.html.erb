@@ -43,9 +43,9 @@
                          </div>
                          <div class="field">
                              <%= f.radio_button 'visibility', 'public', :checked => true %>
-                             <%= f.label :public_name, 'Public', :id => "public_name"  %>
+                             <%= f.label :public_name, 'Public', :id => "public_name",:value => 'public'  %>
                              <%= f.radio_button 'visibility', 'private' %>
-                             <%= f.label :private_name, 'Private', :id => "private_name"  %>
+                             <%= f.label :private_name, 'Private', :id => "private_name",:value => 'private'  %>
                          </div>
                        <button class="ui button" type="submit" class="navbar-link">Edit</button>
                <% end %>

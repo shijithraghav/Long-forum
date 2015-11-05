@@ -33,10 +33,25 @@ div.w2ui-msg-body.w2ui-msg-no-buttons{
     float: left;
 }
 #shared_with{
+  height: auto;
+  width: auto;
   float: left;
-    font-size: 14px;
-    padding: 11px;
+  padding: 20px 29px 8px 8px;
+  font-size: 14px;
+  color: #000;
 
+}
+#buttons{
+  float: left;
+  width: 301px;
+  margin-top: 101px;
+}
+#all_share{
+  float: left;
+  min-width: 601px;
+}
+#cancel_tag{
+  float: left;
 }
 #item{
   height: auto;
@@ -46,10 +61,17 @@ div.w2ui-msg-body.w2ui-msg-no-buttons{
   font-size: 14px;
   color: #8e44ad;
 }
-#shared_with1{
+#item1{
   height: auto;
   width: auto;
   float: left;
+  padding: 10px;
+  font-size: 14px;
+  color: #000;
+}
+#shared_with1{
+  height: auto;
+  width: auto;
   padding: 10px;
   font-size: 14px;
   color: #8e44ad;
@@ -72,10 +94,9 @@ a.invite_more{
   color: #e67e22;
 }
 #submit_tags{
-  float: right;
-  padding-top: 170px;
-}
+  float:left;
 
+}
 .ui-menu .ui-menu-item{
   background-color: #fff;
   border-radius: 4px;
